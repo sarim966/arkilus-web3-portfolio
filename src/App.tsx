@@ -641,13 +641,13 @@ export default function App() {
               <Navbar />
               <main>
                 <Hero />
-                <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-32 overflow-hidden bg-[#05000a] w-full">
+                <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-20 overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#0d001a] via-[#05000a] to-[#05000a] w-full">
                   <div className="text-center mb-16 w-full max-w-7xl px-6 relative z-20">
-                    <h2 className="uppercase tracking-[0.3em] text-3xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/40 bg-clip-text text-transparent mb-6">
-                      PROOFS OF ARCHITECTURE
+                    <h2 className="uppercase tracking-[0.3em] text-3xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent mb-6">
+                      PROJECTS I'VE BUILT
                     </h2>
                     <p className="text-white/40 text-sm md:text-base max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">
-                      A collection of decentralized systems and technical architectures built by Arkilus.
+                      A deep dive into the decentralized applications and technical systems I've brought to life.
                     </p>
                   </div>
                   

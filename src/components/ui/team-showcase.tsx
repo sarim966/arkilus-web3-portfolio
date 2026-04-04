@@ -152,7 +152,7 @@ function PhotoCard({
   return (
     <div
       className={cn(
-        'overflow-hidden rounded-xl cursor-pointer flex-shrink-0 transition-opacity duration-400',
+        'overflow-hidden rounded-xl cursor-pointer flex-shrink-0 transition-all duration-400 border border-transparent hover:border-purple-500/30',
         className,
         isDimmed ? 'opacity-60' : 'opacity-100',
       )}
