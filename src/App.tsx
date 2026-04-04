@@ -34,15 +34,17 @@ import {
 } from 'lucide-react';
 import { PROJECT_SAMPLES, WEBSITE_SHOWCASE, EXPERTISE, SKILLS, TIMELINE, TESTIMONIALS, SOCIAL_LINKS } from './constants';
 import { ProjectSample, WebsiteShowcase, ExpertiseItem, TimelineItem } from './types';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import ProjectDetail from './pages/ProjectDetail';
-import ProjectsPage from './pages/ProjectsPage';
+import ProjectsPage, { mappedProjects } from './pages/ProjectsPage';
+import TeamShowcase from './components/ui/team-showcase';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isConnectOpen, setIsConnectOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -57,7 +59,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '#' },
-    { name: 'Projects', href: '/projects' },
+    { name: 'Projects', href: location.pathname === '/' ? '#projects' : '/projects' },
     { name: 'Websites', href: '#websites' },
     { name: 'Services', href: '#services' },
     { name: 'Experience', href: '#experience' },
@@ -639,6 +641,20 @@ export default function App() {
               <Navbar />
               <main>
                 <Hero />
+                <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-32 overflow-hidden bg-[#05000a] w-full">
+                  <div className="text-center mb-16 w-full max-w-7xl px-6 relative z-20">
+                    <h2 className="uppercase tracking-[0.3em] text-3xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/40 bg-clip-text text-transparent mb-6">
+                      PROOFS OF ARCHITECTURE
+                    </h2>
+                    <p className="text-white/40 text-sm md:text-base max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">
+                      A collection of decentralized systems and technical architectures built by Arkilus.
+                    </p>
+                  </div>
+                  
+                  <div className="w-full relative z-10 flex flex-col items-center justify-center">
+                    <TeamShowcase members={mappedProjects} />
+                  </div>
+                </section>
                 <Websites />
                 <Services />
                 <Skills />

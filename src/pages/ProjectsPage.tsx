@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { PROJECT_SAMPLES } from '../constants';
 import TeamShowcase, { TeamMember } from '../components/ui/team-showcase';
 
-const mappedProjects: TeamMember[] = PROJECT_SAMPLES.map(project => ({
+export const mappedProjects: TeamMember[] = PROJECT_SAMPLES.map(project => ({
   id: project.id,
   name: project.title,
   role: project.category,
