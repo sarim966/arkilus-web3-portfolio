@@ -641,17 +641,18 @@ export default function App() {
               <Navbar />
               <main>
                 <Hero />
-                <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-20 overflow-hidden bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#0d001a] via-[#05000a] to-[#05000a] w-full">
-                  <div className="text-center mb-16 w-full max-w-7xl px-6 relative z-20">
-                    <h2 className="uppercase tracking-[0.3em] text-3xl md:text-5xl font-bold bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent mb-6">
+                <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-20 overflow-hidden bg-[#05000a] w-full">
+                  <div className="text-left mb-16 w-full max-w-7xl px-6 relative z-20">
+                    <h2 className="uppercase tracking-[0.3em] text-3xl md:text-5xl font-bold text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.5)] mb-6">
                       PROJECTS I'VE BUILT
                     </h2>
-                    <p className="text-white/40 text-sm md:text-base max-w-2xl mx-auto uppercase tracking-widest leading-relaxed">
+                    <p className="text-white/40 text-sm md:text-base max-w-2xl uppercase tracking-widest leading-relaxed">
                       A deep dive into the decentralized applications and technical systems I've brought to life.
                     </p>
                   </div>
                   
-                  <div className="w-full relative z-10 flex flex-col items-center justify-center">
+                  <div className="w-full relative z-10 flex flex-col items-center justify-center mt-12 bg-[radial-gradient(circle_at_center,_rgba(147,51,234,0.15)_0%,_rgba(0,0,0,0)_70%)] py-12">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/20 blur-[120px] rounded-full -z-10" />
                     <TeamShowcase members={mappedProjects} />
                   </div>
                 </section>
