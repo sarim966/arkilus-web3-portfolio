@@ -152,7 +152,7 @@ function PhotoCard({
   return (
     <div
       className={cn(
-        'overflow-hidden rounded-xl cursor-pointer flex-shrink-0 transition-all duration-400 border border-transparent hover:border-purple-500/30',
+        'overflow-hidden rounded-xl cursor-pointer flex-shrink-0 transition-all duration-500 border border-white/5 hover:border-[#bc77ff] hover:shadow-[0_0_30px_rgba(188,119,255,0.4)] group',
         className,
         isDimmed ? 'opacity-60' : 'opacity-100',
       )}
@@ -162,10 +162,7 @@ function PhotoCard({
       <img
         src={member.image}
         alt={member.name}
-        className="w-full h-full object-contain bg-[#0a0a0a] p-2 transition-[filter] duration-500"
-        style={{
-          filter: isActive ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.77)',
-        }}
+        className="w-full h-full object-contain bg-[#0a0a0a] p-2 transition-transform duration-500 group-hover:scale-105"
       />
     </div>
   );
