@@ -53,6 +53,7 @@ export interface ProjectSample {
   tweets: { url: string; screenshot: string; }[];
   coverImage: string;
   bannerImageUrl?: string;
+  accentColor?: string;
 }
 
 export interface WebsiteShowcase {

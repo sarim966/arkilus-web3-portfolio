@@ -16,7 +16,8 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
       { url: 'https://x.com/arkilus78/status/1968350999665578384', screenshot: '/assets/projects/seismic/tweet-6.jpg' }
     ],
     coverImage: '/assets/projects/seismic/cover.jpg',
-    bannerImageUrl: '/assets/projects/seismic/banner.png'
+    bannerImageUrl: '/assets/projects/seismic/banner.png',
+    accentColor: '#8B5A2B'
   },
   {
     id: 'gensyn',
@@ -33,7 +34,8 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
       { url: 'https://x.com/arkilus78/status/1992276121304580106', screenshot: '/assets/projects/gensyn/tweet-6.jpg' },
       { url: 'https://x.com/arkilus78/status/1993620096535912573', screenshot: '/assets/projects/gensyn/tweet-7.jpg' }
     ],
-    coverImage: '/assets/projects/gensyn/cover.jpg'
+    coverImage: '/assets/projects/gensyn/cover.png',
+    accentColor: '#FF8C00'
   },
   {
     id: 'alpha-sharing',
@@ -51,7 +53,8 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
       { url: 'https://x.com/arkilus78/status/2009320757458030621', screenshot: '/assets/projects/alpha-sharing/tweet-7.jpg' },
       { url: 'https://x.com/arkilus78/status/2024437651374559634', screenshot: '/assets/projects/alpha-sharing/tweet-8.jpg' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1620712943543-bcc4608c9980?w=800&auto=format&fit=crop&q=80'
+    coverImage: '/assets/projects/alpha-sharing/cover.jpg',
+    accentColor: '#FF1493'
   },
   {
     id: 'opinionated',
@@ -69,7 +72,8 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
       { url: 'https://x.com/arkilus78/status/2023832473235582996', screenshot: '/assets/projects/opinionated/tweet-7.jpg' },
       { url: 'https://x.com/arkilus78/status/2021586472764383592', screenshot: '/assets/projects/opinionated/tweet-8.jpg' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&auto=format&fit=crop&q=80'
+    coverImage: '/assets/projects/opinionated/cover.jpg',
+    accentColor: '#FF003F'
   },
   {
     id: 'sentient',
@@ -84,7 +88,8 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
       { url: 'https://x.com/arkilus78/status/1966865825329279209', screenshot: '/assets/projects/sentient/tweet-4.jpg' }
     ],
     coverImage: '/assets/projects/sentient/cover.jpg',
-    bannerImageUrl: '/assets/projects/sentient/banner.png'
+    bannerImageUrl: '/assets/projects/sentient/banner.png',
+    accentColor: '#00FFFF'
   },
   {
     id: 'prisma',
@@ -101,7 +106,8 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
       { url: 'https://x.com/arkilus78/status/2007149687850316250', screenshot: '/assets/projects/prisma/tweet-6.jpg' },
       { url: 'https://x.com/arkilus78/status/2007867037209792624', screenshot: '/assets/projects/prisma/tweet-7.jpg' }
     ],
-    coverImage: 'https://images.unsplash.com/photo-1644088379091-d574269d422f?w=800&auto=format&fit=crop&q=80'
+    coverImage: '/assets/projects/prisma/cover.jpg',
+    accentColor: '#00BFFF'
   }
 ];
 

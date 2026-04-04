@@ -36,6 +36,7 @@ import { PROJECT_SAMPLES, WEBSITE_SHOWCASE, EXPERTISE, SKILLS, TIMELINE, TESTIMO
 import { ProjectSample, WebsiteShowcase, ExpertiseItem, TimelineItem } from './types';
 import { Routes, Route, Link } from 'react-router-dom';
 import ProjectDetail from './pages/ProjectDetail';
+import ProjectsPage from './pages/ProjectsPage';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,7 +57,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '#' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Projects', href: '/projects' },
     { name: 'Websites', href: '#websites' },
     { name: 'Services', href: '#services' },
     { name: 'Experience', href: '#experience' },
@@ -283,18 +284,21 @@ const Projects = () => {
                   <img 
                     src={sample.coverImage} 
                     alt={sample.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="text-[10px] font-bold bg-black text-white px-3 py-1.5 rounded-full uppercase tracking-widest shadow-lg">
+                    <span 
+                      className="text-[10px] font-bold text-white px-3 py-1.5 rounded-full uppercase tracking-widest shadow-lg shadow-black/50"
+                      style={{ backgroundColor: sample.accentColor || '#000' }}
+                    >
                       {sample.category}
                     </span>
                   </div>
                 </div>
                 <div className="flex flex-col flex-1 px-2 pb-2">
                   <div className="flex justify-between items-baseline mb-1">
-                    <h3 className="text-lg font-bold text-neutral-900 tracking-tight group-hover:text-neon-purple transition-colors">{sample.title}</h3>
+                    <h3 className="text-lg font-bold text-neutral-900 tracking-tight transition-colors">{sample.title}</h3>
                   </div>
 
                   <p className="text-[11px] text-neutral-600 leading-relaxed mb-6">
@@ -635,7 +639,6 @@ export default function App() {
               <Navbar />
               <main>
                 <Hero />
-                <Projects />
                 <Websites />
                 <Services />
                 <Skills />
@@ -673,6 +676,7 @@ export default function App() {
             </>
           } />
           <Route path="/project/:projectId" element={<ProjectDetail />} />
+          <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
       </div>
     </div>
