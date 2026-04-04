@@ -651,9 +651,13 @@ export default function App() {
                     </p>
                   </div>
                   
-                  <div className="w-full relative z-10 flex flex-col items-center justify-center mt-12 bg-[radial-gradient(circle_at_center,_rgba(147,51,234,0.15)_0%,_rgba(0,0,0,0)_70%)] py-12">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/20 blur-[120px] rounded-full -z-10" />
-                    <TeamShowcase members={mappedProjects} />
+                  <div className="w-full relative z-10 flex flex-col items-center justify-center mt-12 py-12">
+                    <div className="absolute inset-0 bg-gradient-to-b from-[#05000a] via-transparent to-transparent pointer-events-none z-10" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(147,51,234,0.15)_0%,_rgba(0,0,0,0)_70%)] pointer-events-none" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 blur-[160px] rounded-full -z-10" />
+                    <div className="w-full relative z-20">
+                      <TeamShowcase members={mappedProjects} />
+                    </div>
                   </div>
                 </section>
                 <Websites />

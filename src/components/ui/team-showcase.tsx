@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FaLinkedinIn, FaTwitter, FaBehance, FaInstagram, FaLink } from 'react-icons/fa';
 import { cn } from '../../lib/utils';
+import { Link } from 'react-router-dom';
 
 export interface TeamMember {
   id: string;
@@ -73,7 +74,7 @@ export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcase
   const col3 = members.filter((_, i) => i % 3 === 2);
 
   return (
-    <div className="flex flex-col md:flex-row items-start gap-12 md:gap-24 select-none w-full max-w-7xl mx-auto py-8 px-4 md:px-6 font-sans">
+    <div className="flex flex-col md:flex-row items-start gap-12 md:gap-24 select-none w-full max-w-7xl mx-auto py-8 px-4 md:px-6 font-sans cursor-pointer group/showcase">
       {/* ── Left: photo grid ── */}
       <div className="flex gap-4 md:gap-6 flex-shrink-0 overflow-x-auto pb-1 md:pb-0">
         {/* Column 1 */}
@@ -150,21 +151,23 @@ function PhotoCard({
   const isDimmed = hoveredId !== null && !isActive;
 
   return (
-    <div
-      className={cn(
-        'overflow-hidden rounded-xl cursor-pointer flex-shrink-0 transition-all duration-500 border border-white/5 hover:border-[#bc77ff] hover:shadow-[0_0_30px_rgba(188,119,255,0.4)] group',
-        className,
-        isDimmed ? 'opacity-60' : 'opacity-100',
-      )}
-      onMouseEnter={() => onHover(member.id)}
-      onMouseLeave={() => onHover(null)}
-    >
-      <img
-        src={member.image}
-        alt={member.name}
-        className="w-full h-full object-contain bg-[#0a0a0a] p-2 transition-transform duration-500 group-hover:scale-105"
-      />
-    </div>
+    <Link to={`/project/${member.id}`} className="block focus:outline-none flex-shrink-0" style={{ textDecoration: 'none', color: 'inherit' }}>
+      <div
+        className={cn(
+          'overflow-hidden rounded-xl transition-all duration-500 border border-white/5 hover:border-[#bc77ff] hover:shadow-[0_0_30px_rgba(188,119,255,0.4)] group w-full h-full cursor-pointer',
+          className,
+          isDimmed ? 'opacity-60' : 'opacity-100',
+        )}
+        onMouseEnter={() => onHover(member.id)}
+        onMouseLeave={() => onHover(null)}
+      >
+        <img
+          src={member.image}
+          alt={member.name}
+          className="w-full h-full object-contain bg-[#0a0a0a] p-2 transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+    </Link>
   );
 }
 
@@ -186,14 +189,15 @@ function MemberRow({
   const hasSocial = member.social?.twitter ?? member.social?.linkedin ?? member.social?.instagram ?? member.social?.behance ?? member.social?.website;
 
   return (
-    <div
-      className={cn(
-        'cursor-pointer transition-opacity duration-300',
-        isDimmed ? 'opacity-50' : 'opacity-100',
-      )}
-      onMouseEnter={() => onHover(member.id)}
-      onMouseLeave={() => onHover(null)}
-    >
+    <Link to={`/project/${member.id}`} className="block focus:outline-none" style={{ textDecoration: 'none', color: 'inherit' }}>
+      <div
+        className={cn(
+          'cursor-pointer transition-opacity duration-300',
+          isDimmed ? 'opacity-50' : 'opacity-100',
+        )}
+        onMouseEnter={() => onHover(member.id)}
+        onMouseLeave={() => onHover(null)}
+      >
       {/* Name + social*/}
       <div className="flex items-center gap-2.5">
         <span
@@ -288,6 +292,7 @@ function MemberRow({
       <p className="mt-1.5 pl-[27px] text-[7px] md:text-[10px] font-medium uppercase tracking-[0.2em] text-white/50">
         {member.role}
       </p>
-    </div>
+      </div>
+    </Link>
   );
 }
