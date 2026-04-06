@@ -642,7 +642,7 @@ export default function App() {
               <Navbar />
               <main>
                 <Hero />
-                <section id="architecture" className="h-auto min-h-screen flex flex-col items-center py-24 my-0 overflow-hidden bg-[#030014] w-full">
+                <section id="architecture" className="h-auto flex flex-col items-center pt-24 pb-0 my-0 overflow-hidden bg-[#030014] w-full">
                   <div className="w-full flex flex-col items-center">
                     <div className="text-left mb-12 w-full max-w-7xl px-6 relative z-20">
                       <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.5)] mb-6">
