@@ -663,11 +663,7 @@ export default function App() {
                   </div>
                 </section>
                 
-                {/* Arkilus Connective Thread */}
-                <div className="relative h-32 w-full bg-[#030014] flex justify-center items-start overflow-visible">
-                  <div className="w-[1px] h-full bg-gradient-to-b from-[#bc77ff] via-[#bc77ff]/50 to-transparent shadow-[0_0_15px_rgba(188,119,255,0.5)]" />
-                </div>
-                
+
                 <section id="websites" className="h-auto bg-[#030014] py-0 my-0">
                   <div className="w-full">
                     <Gallery4 />

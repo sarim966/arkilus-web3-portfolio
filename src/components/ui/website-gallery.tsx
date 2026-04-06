@@ -17,6 +17,7 @@ export interface Gallery4Item {
   description: string;
   href: string;
   image: string;
+  video?: string;
   tags?: string[];
 }
 
@@ -28,14 +29,15 @@ export interface Gallery4Props {
 
 const defaultItems: Gallery4Item[] = [
   {
-    id: "prismax",
-    title: "PrismaX Finance",
+    id: "seismic",
+    title: "SEISMIC ACADEMY V2",
     description:
-      "High-performance DeFi interface for cross-chain liquidity aggregation and yield optimization.",
-    href: "https://prismax.example.com",
+      "A comprehensive educational platform for seismic , featuring advanced course management and technical resource distribution.",
+    href: "https://seismicacademyv2.vercel.app/",
     image:
       "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    tags: ["React", "Next.js", "Solidity"],
+    video: "https://streamable.com/3dwe37",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
     id: "base44",
@@ -136,6 +138,12 @@ const Gallery4 = ({
           </div>
         </div>
       </div>
+
+      {/* Arkilus Connective Thread (Visual Anchor) */}
+      <div className="relative h-32 w-full bg-[#030014] flex justify-center items-center overflow-visible mb-8">
+        <div className="w-[1px] h-full bg-gradient-to-b from-[#bc77ff] via-[#bc77ff]/50 to-transparent shadow-[0_0_15px_rgba(188,119,255,0.5)]" />
+      </div>
+
       <div className="w-full px-10 md:px-20">
         <Carousel
           setApi={setCarouselApi}
@@ -149,11 +157,23 @@ const Gallery4 = ({
               >
                 <a href={item.href} target="_blank" rel="noopener noreferrer" className="group rounded-3xl block">
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-3xl border border-white/5 hover:border-[#bc77ff]/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(188,119,255,0.15)] md:aspect-[5/4] lg:aspect-[16/9]">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="absolute h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                    />
+                    {item.video ? (
+                      <video
+                        src={item.video}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        poster={item.image}
+                        className="absolute h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105 brightness-75"
+                      />
+                    ) : (
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="absolute h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                    )}
                     {/* Dark gradient overlay */}
                     <div className="absolute inset-0 h-full bg-gradient-to-t from-[#030014] via-[#030014]/60 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 md:p-8">
