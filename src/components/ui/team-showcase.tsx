@@ -74,7 +74,7 @@ export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcase
   const col3 = members.filter((_, i) => i % 3 === 2);
 
   return (
-    <div className="flex flex-col md:flex-row items-start gap-12 md:gap-24 select-none w-full max-w-7xl mx-auto py-8 px-4 md:px-6 font-sans cursor-pointer group/showcase">
+    <div className="flex flex-col md:flex-row items-start gap-10 md:gap-16 select-none w-full max-w-6xl mx-auto py-8 px-4 md:px-6 font-sans cursor-pointer group/showcase">
       {/* ── Left: photo grid ── */}
       <div className="flex gap-4 md:gap-6 flex-shrink-0 overflow-x-auto pb-1 md:pb-0">
         {/* Column 1 */}
@@ -83,7 +83,7 @@ export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcase
             <PhotoCard
               key={member.id}
               member={member}
-              className="w-[180px] h-[200px] sm:w-[200px] sm:h-[220px] md:w-[220px] md:h-[240px]"
+              className="w-[140px] h-[155px] sm:w-[160px] sm:h-[175px] md:w-[180px] md:h-[195px]"
               hoveredId={hoveredId}
               onHover={setHoveredId}
             />
@@ -91,12 +91,12 @@ export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcase
         </div>
 
         {/* Column 2 */}
-        <div className="flex flex-col gap-4 md:gap-6 mt-[64px] sm:mt-[76px] md:mt-[96px]">
+        <div className="flex flex-col gap-4 md:gap-6 mt-[48px] sm:mt-[60px] md:mt-[72px]">
           {col2.map((member) => (
             <PhotoCard
               key={member.id}
               member={member}
-              className="w-[200px] h-[220px] sm:w-[220px] sm:h-[240px] md:w-[240px] md:h-[260px]"
+              className="w-[160px] h-[175px] sm:w-[180px] sm:h-[195px] md:w-[200px] md:h-[215px]"
               hoveredId={hoveredId}
               onHover={setHoveredId}
             />
@@ -104,12 +104,12 @@ export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcase
         </div>
 
         {/* Column 3 */}
-        <div className="flex flex-col gap-4 md:gap-6 mt-[32px] sm:mt-[42px] md:mt-[48px]">
+        <div className="flex flex-col gap-4 md:gap-6 mt-[24px] sm:mt-[30px] md:mt-[36px]">
           {col3.map((member) => (
             <PhotoCard
               key={member.id}
               member={member}
-              className="w-[190px] h-[210px] sm:w-[210px] sm:h-[230px] md:w-[230px] md:h-[250px]"
+              className="w-[150px] h-[165px] sm:w-[170px] sm:h-[185px] md:w-[190px] md:h-[205px]"
               hoveredId={hoveredId}
               onHover={setHoveredId}
             />
@@ -209,7 +209,7 @@ function MemberRow({
         />
         <span
           className={cn(
-            'text-lg md:text-2xl font-bold leading-none tracking-tight transition-colors duration-300',
+            'text-base md:text-xl font-bold leading-none tracking-tight transition-colors duration-300',
             isActive ? 'text-white' : 'text-white/80',
           )}
         >
