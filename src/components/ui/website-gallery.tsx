@@ -97,7 +97,7 @@ const Gallery4 = ({
 
   return (
     <section className="px-12 py-0 my-0 bg-gradient-to-b from-[#030014] via-[#05001a] to-[#030014] relative overflow-hidden">
-      <div className="pt-10 pb-12 w-full">
+      <div className="pt-0 pb-12 w-full">
       {/* Ambient glow bleeding from section above */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#bc77ff]/8 blur-[180px] rounded-full pointer-events-none" />
 
