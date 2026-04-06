@@ -38,6 +38,7 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import ProjectDetail from './pages/ProjectDetail';
 import ProjectsPage, { mappedProjects } from './pages/ProjectsPage';
 import TeamShowcase from './components/ui/team-showcase';
+import { Gallery4 } from './components/ui/website-gallery';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -660,7 +661,12 @@ export default function App() {
                     </div>
                   </div>
                 </section>
-                <Websites />
+                <section id="websites" className="min-h-screen flex items-center justify-center relative bg-[#030014]">
+                  <div className="absolute top-0 inset-x-0 h-48 bg-gradient-to-b from-[#05000a] to-transparent pointer-events-none" />
+                  <div className="w-full">
+                    <Gallery4 />
+                  </div>
+                </section>
                 <Services />
                 <Skills />
                 <Experience />
