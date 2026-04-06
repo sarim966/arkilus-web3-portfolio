@@ -642,8 +642,8 @@ export default function App() {
               <Navbar />
               <main>
                 <Hero />
-                <section id="projects" className="min-h-screen flex flex-col items-center py-0 my-0 overflow-hidden bg-[#05000a] w-full">
-                  <div className="pt-32 pb-12 w-full flex flex-col items-center">
+                <section id="architecture" className="min-h-[120vh] flex flex-col items-center py-0 my-0 overflow-hidden bg-[#030014] w-full">
+                  <div className="pt-32 pb-32 w-full flex flex-col items-center">
                     <div className="text-left mb-16 w-full max-w-7xl px-6 relative z-20">
                       <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.5)] mb-6">
                         PROJECTS I'VE WORKED WITH
