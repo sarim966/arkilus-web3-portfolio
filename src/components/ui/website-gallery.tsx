@@ -34,9 +34,8 @@ const defaultItems: Gallery4Item[] = [
     description:
       "A comprehensive educational platform for seismic , featuring advanced course management and technical resource distribution.",
     href: "https://seismicacademyv2.vercel.app/",
-    image:
-      "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    video: "https://streamable.com/3dwe37",
+    image: "/assets/projects/seismic/cover.jpg",
+    video: "/assets/projects/seismic/seismic-bg.mp4",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
