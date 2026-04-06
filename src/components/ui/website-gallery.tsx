@@ -96,7 +96,7 @@ const Gallery4 = ({
   }, [carouselApi]);
 
   return (
-    <section className="py-24 bg-[#030014] relative overflow-hidden">
+    <section className="px-12 py-24 bg-[#030014] relative overflow-hidden">
       {/* Ambient glow bleeding from section above */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-600/8 blur-[180px] rounded-full pointer-events-none" />
 
@@ -134,22 +134,16 @@ const Gallery4 = ({
           </div>
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-full px-10 md:px-20">
         <Carousel
           setApi={setCarouselApi}
-          opts={{
-            breakpoints: {
-              "(max-width: 768px)": {
-                dragFree: true,
-              },
-            },
-          }}
+          opts={{ align: "center", loop: true }}
         >
-          <CarouselContent className="ml-0 flex justify-center 2xl:ml-[max(8rem,calc(50vw-700px))] 2xl:mr-[max(0rem,calc(50vw-700px))]">
+          <CarouselContent className="-ml-4">
             {items.map((item) => (
               <CarouselItem
                 key={item.id}
-                className="max-w-[420px] pl-[20px] lg:max-w-[500px]"
+                className="pl-4 basis-full md:basis-1/2 lg:basis-1/4"
               >
                 <a href={item.href} target="_blank" rel="noopener noreferrer" className="group rounded-3xl block">
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-3xl border border-white/5 hover:border-[#bc77ff]/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(188,119,255,0.15)] md:aspect-[5/4] lg:aspect-[16/9]">
