@@ -96,9 +96,9 @@ const Gallery4 = ({
   }, [carouselApi]);
 
   return (
-    <section className="px-12 py-24 bg-[#030014] relative overflow-hidden">
+    <section className="px-12 py-24 bg-gradient-to-b from-[#030014] via-[#05001a] to-[#030014] relative overflow-hidden">
       {/* Ambient glow bleeding from section above */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-purple-600/8 blur-[180px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#bc77ff]/8 blur-[180px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto max-w-7xl px-6">
         <div className="mb-8 flex flex-col md:flex-row items-start md:items-end justify-between md:mb-14 lg:mb-16 gap-6">

@@ -642,7 +642,7 @@ export default function App() {
               <Navbar />
               <main>
                 <Hero />
-                <section id="projects" className="min-h-screen flex flex-col items-center justify-center pt-16 pb-8 overflow-hidden bg-[#05000a] w-full">
+                <section id="projects" className="min-h-screen flex flex-col items-center justify-center py-0 my-0 overflow-hidden bg-[#05000a] w-full">
                   <div className="text-left mb-16 w-full max-w-7xl px-6 relative z-20">
                     <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.5)] mb-6">
                       PROJECTS I'VE WORKED WITH
@@ -655,13 +655,13 @@ export default function App() {
                   <div className="w-full relative z-10 flex flex-col items-center justify-center mt-6 py-12">
                     <div className="absolute inset-0 bg-gradient-to-b from-[#05000a] via-transparent to-transparent pointer-events-none z-10" />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(147,51,234,0.15)_0%,_rgba(0,0,0,0)_70%)] pointer-events-none" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-600/10 blur-[160px] rounded-full -z-10" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#bc77ff]/10 blur-[160px] rounded-full -z-10" />
                     <div className="w-full relative z-20">
                       <TeamShowcase members={mappedProjects} />
                     </div>
                   </div>
                 </section>
-                <section id="websites" className="min-h-screen flex items-center justify-center relative bg-[#030014]">
+                <section id="websites" className="min-h-screen flex items-center justify-center relative bg-[#030014] py-0 my-0">
                   <div className="absolute top-0 inset-x-0 h-48 bg-gradient-to-b from-[#05000a] to-transparent pointer-events-none" />
                   <div className="w-full">
                     <Gallery4 />
