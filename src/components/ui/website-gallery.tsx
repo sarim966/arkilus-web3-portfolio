@@ -109,7 +109,6 @@ const Gallery4 = ({
             <p className="max-w-xl text-white/40 text-xs uppercase tracking-widest leading-relaxed">
               CLICK ANY PROJECT TO EXPLORE THE LIVE INTERFACE AND TECHNICAL BREAKDOWN
             </p>
-            <div className="bg-gradient-to-r from-[#bc77ff] to-transparent h-[1px] w-1/3 mt-4" />
           </div>
           <div className="hidden shrink-0 gap-2 md:flex">
             <Button
