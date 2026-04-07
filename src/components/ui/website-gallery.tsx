@@ -98,7 +98,7 @@ const Gallery4 = ({
       <div className="pt-0 pb-12 w-full">
       {/* Ambient glow moved away from the seam to the center area */}
 
-      <div className="container mx-auto max-w-7xl px-6 min-h-[30vh] flex flex-col justify-center py-20">
+      <div className="container mx-auto max-w-7xl px-6 min-h-[20vh] flex flex-col justify-center pt-8 pb-8">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 w-full">
           <div className="flex flex-col gap-4 text-left">
             <h2 className="font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] uppercase drop-shadow-[0_0_15px_rgba(188,119,255,0.5)]">
@@ -136,7 +136,7 @@ const Gallery4 = ({
       </div>
 
       {/* Arkilus Connective Thread (Visual Anchor) */}
-      <div className="relative h-32 w-full bg-[#030014] flex justify-center items-center overflow-visible mb-8">
+      <div className="relative h-20 w-full bg-[#030014] flex justify-center items-center overflow-visible mb-6">
         <div className="w-[1px] h-full bg-gradient-to-b from-[#bc77ff] via-[#bc77ff]/50 to-transparent shadow-[0_0_15px_rgba(188,119,255,0.5)]" />
       </div>
 
