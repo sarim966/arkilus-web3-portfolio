@@ -164,7 +164,8 @@ const Gallery4 = ({
                         muted
                         playsInline
                         poster={item.image}
-                        className="absolute h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105 brightness-75"
+                        className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                        style={{ filter: "brightness(2.0) contrast(1.2)" }}
                       />
                     ) : (
                       <img
