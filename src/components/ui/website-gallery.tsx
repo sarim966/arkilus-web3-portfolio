@@ -98,9 +98,9 @@ const Gallery4 = ({
       <div className="pt-0 pb-12 w-full">
       {/* Ambient glow moved away from the seam to the center area */}
 
-      <div className="container mx-auto max-w-7xl px-6">
-        <div className="mb-8 flex flex-col md:flex-row items-start md:items-end justify-between md:mb-14 lg:mb-16 gap-6">
-          <div className="flex flex-col gap-4">
+      <div className="container mx-auto max-w-7xl px-6 min-h-[30vh] flex flex-col justify-center py-20">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 w-full">
+          <div className="flex flex-col gap-4 text-left">
             <h2 className="font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] uppercase drop-shadow-[0_0_15px_rgba(188,119,255,0.5)]">
               {title}
             </h2>
