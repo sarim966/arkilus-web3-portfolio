@@ -35,7 +35,6 @@ const defaultItems: Gallery4Item[] = [
       "A comprehensive educational platform for seismic , featuring advanced course management and technical resource distribution.",
     href: "https://seismicacademyv2.vercel.app/",
     image: "/assets/projects/seismic/cover.jpg",
-    video: "/assets/projects/seismic/seismic-bg.mp4",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
@@ -156,16 +155,11 @@ const Gallery4 = ({
               >
                 <a href={item.href} target="_blank" rel="noopener noreferrer" className="group rounded-3xl block">
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-3xl border border-white/5 hover:border-[#bc77ff]/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(188,119,255,0.15)] md:aspect-[5/4] lg:aspect-[16/9]">
-                    {item.video ? (
-                      <video
-                        src={item.video}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        poster={item.image}
-                        className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                        style={{ filter: "brightness(2.0) contrast(1.2)" }}
+                    {item.id === "seismic" ? (
+                      <img
+                        src="/assets/projects/seismic/cover.jpg"
+                        alt={item.title}
+                        className="w-full h-48 object-cover rounded-t-xl"
                       />
                     ) : (
                       <img
