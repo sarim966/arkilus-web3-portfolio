@@ -48,13 +48,12 @@ const defaultItems: Gallery4Item[] = [
   },
   {
     id: "nodesync",
-    title: "NodeSync Dashboard",
+    title: "THE BEYOND STUDIO",
     description:
-      "Real-time blockchain node monitoring with 3D visualization of network topology and consensus health.",
-    href: "#",
-    image:
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    tags: ["Three.js", "GSAP", "WebSocket"],
+      "A high-conversion, fully animated landing page built to maximize customer acquisition through immersive visual storytelling and seamless interaction.",
+    href: "https://thebeyondstudio.vercel.app/",
+    image: "/assets/projects/prisma/cover.jpg",
+    tags: ["Framer Motion", "GSAP", "Conversion UI"],
   },
   {
     id: "vaultx",
@@ -154,7 +153,7 @@ const Gallery4 = ({
               >
                 <a href={item.href} target="_blank" rel="noopener noreferrer" className="group rounded-3xl block">
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-3xl border border-white/5 hover:border-[#bc77ff]/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(188,119,255,0.15)] md:aspect-[5/4] lg:aspect-[16/9]">
-                    {item.id === "seismic" || item.id === "base44" ? (
+                    {item.id === "seismic" || item.id === "base44" || item.id === "nodesync" ? (
                       <img
                         src={item.image}
                         alt={item.title}
