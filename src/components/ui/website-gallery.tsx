@@ -39,13 +39,12 @@ const defaultItems: Gallery4Item[] = [
   },
   {
     id: "base44",
-    title: "Base44 Protocol",
+    title: "LINKEDIN AGENT",
     description:
-      "Technical infrastructure and node management dashboard for decentralized validator networks.",
-    href: "https://base44.io",
-    image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    tags: ["TypeScript", "Vite", "Tailwind"],
+      "A smart automation tool that aggregates real-time job listings and market demands into a centralized dashboard for career strategic planning.",
+    href: "https://liagenttest5.vercel.app/",
+    image: "/assets/projects/alpha-sharing/cover.jpg",
+    tags: ["AI Automation", "React", "Market Analysis"],
   },
   {
     id: "nodesync",
@@ -155,9 +154,9 @@ const Gallery4 = ({
               >
                 <a href={item.href} target="_blank" rel="noopener noreferrer" className="group rounded-3xl block">
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-3xl border border-white/5 hover:border-[#bc77ff]/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(188,119,255,0.15)] md:aspect-[5/4] lg:aspect-[16/9]">
-                    {item.id === "seismic" ? (
+                    {item.id === "seismic" || item.id === "base44" ? (
                       <img
-                        src="/assets/projects/seismic/cover.jpg"
+                        src={item.image}
                         alt={item.title}
                         className="w-full h-48 object-cover rounded-t-xl"
                       />
