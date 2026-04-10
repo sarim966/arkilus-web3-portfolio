@@ -56,20 +56,18 @@ const defaultItems: Gallery4Item[] = [
     tags: ["Framer Motion", "GSAP", "Conversion UI"],
   },
   {
-    id: "vaultx",
-    title: "VaultX Interface",
-    description:
-      "Secure multi-sig wallet interface with animated transaction flows and on-chain governance integration.",
-    href: "#",
-    image:
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-    tags: ["Framer Motion", "Rust", "Solana"],
+    id: "mantle-ai",
+    title: "MANTLE AI YIELD SCANNER",
+    description: "An AI-driven DeFi intelligence platform that scans and optimizes yield-generating opportunities across the Mantle ecosystem in real-time.",
+    href: "https://mantle-ai-yield-scanner.vercel.app/",
+    image: "/assets/projects/opinionated/cover.jpg",
+    tags: ["Mantle Network", "AI Analytics", "DeFi"],
   },
 ];
 
 const Gallery4 = ({
-  title = "DIGITAL INTERFACES",
-  description = "Click any project to explore the live interface and technical breakdown.",
+  title = "PROJECTS I'VE BUILT",
+  description = "Explore my project deployments, live interfaces and technical architectures.",
   items = defaultItems,
 }: Gallery4Props) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
@@ -105,7 +103,7 @@ const Gallery4 = ({
               {title}
             </h2>
             <p className="max-w-xl text-white/40 text-xs uppercase tracking-widest leading-relaxed">
-              CLICK ANY PROJECT TO EXPLORE THE LIVE INTERFACE AND TECHNICAL BREAKDOWN
+              EXPLORE MY PROJECT DEPLOYMENTS, LIVE INTERFACES AND TECHNICAL ARCHITECTURES
             </p>
           </div>
           <div className="hidden shrink-0 gap-2 md:flex">
@@ -153,7 +151,7 @@ const Gallery4 = ({
               >
                 <a href={item.href} target="_blank" rel="noopener noreferrer" className="group rounded-3xl block">
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-3xl border border-white/5 hover:border-[#bc77ff]/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(188,119,255,0.15)] md:aspect-[5/4] lg:aspect-[16/9]">
-                    {item.id === "seismic" || item.id === "base44" || item.id === "nodesync" ? (
+                    {item.id === "seismic" || item.id === "base44" || item.id === "nodesync" || item.id === "mantle-ai" ? (
                       <img
                         src={item.image}
                         alt={item.title}
