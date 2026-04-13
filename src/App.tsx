@@ -27,13 +27,10 @@ import {
   Link as LinkIcon,
   ArrowUpRight,
   Check,
-  Trophy,
-  PenTool,
-  Users,
-  Layers
+  Trophy
 } from 'lucide-react';
-import { PROJECT_SAMPLES, WEBSITE_SHOWCASE, EXPERTISE, SKILLS, TIMELINE, TESTIMONIALS, SOCIAL_LINKS } from './constants';
-import { ProjectSample, WebsiteShowcase, ExpertiseItem, TimelineItem } from './types';
+import { PROJECT_SAMPLES, WEBSITE_SHOWCASE, SKILLS, TIMELINE, TESTIMONIALS, SOCIAL_LINKS } from './constants';
+import { ProjectSample, WebsiteShowcase, TimelineItem } from './types';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import ProjectDetail from './pages/ProjectDetail';
 import ProjectsPage, { mappedProjects } from './pages/ProjectsPage';
@@ -400,51 +397,6 @@ const Websites = () => {
   );
 };
 
-const Services = () => {
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'PenTool': return <PenTool size={32} />;
-      case 'Users': return <Users size={32} />;
-      case 'Layers': return <Layers size={32} />;
-      case 'Bot': return <Bot size={32} />;
-      case 'Wallet': return <Wallet size={32} />;
-      case 'Twitter': return <Twitter size={32} />;
-      case 'Cpu': return <Cpu size={32} />;
-      default: return <Zap size={32} />;
-    }
-  };
-
-  return (
-    <section id="services" className="py-24 bg-white/5">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4 text-white">EXPERTISE</h2>
-          <p className="text-white/50">Core competencies that drive engagement and growth.</p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-8">
-          {EXPERTISE.map((service) => (
-            <div 
-              key={service.id} 
-              className="p-8 glass rounded-3xl hover:bg-white/10 transition-all group relative border border-white/5 hover:border-neon-purple/30 shadow-2xl overflow-hidden"
-            >
-              {/* Radial Glow border overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-neon-purple/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-              <div className="absolute -inset-2 bg-neon-purple/5 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 pointer-events-none" />
-
-              <div className="text-neon-purple mb-6 group-hover:scale-110 transition-transform origin-left relative z-10">
-                {getIcon(service.icon)}
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-white relative z-10">{service.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed relative z-10">{service.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const Skills = () => {
   const getSkillIcon = (iconName: string) => {
     switch (iconName) {
@@ -675,7 +627,6 @@ export default function App() {
                   <OrbitalTimelineDemo />
                 </section>
 
-                <Services />
                 <Skills />
                 <Experience />
                 
