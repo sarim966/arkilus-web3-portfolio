@@ -69,6 +69,7 @@ export interface ExpertiseItem {
   title: string;
   description: string;
   icon: string;
+  skills: string[];
 }
 
 export interface TimelineItem {

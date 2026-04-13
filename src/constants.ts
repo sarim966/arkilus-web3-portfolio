@@ -133,19 +133,22 @@ export const EXPERTISE: ExpertiseItem[] = [
     id: 'exp-content',
     title: 'Content Creation',
     description: 'Turning complex protocol mechanics into viral, digestible threads and transparent architecture guides.',
-    icon: 'PenTool'
+    icon: 'PenTool',
+    skills: ['Scripts', 'Hooks', 'Editing', 'Storytelling', 'Visual Design']
   },
   {
     id: 'exp-community',
     title: 'Community Management',
     description: 'Cultivating "Diamond Hand" cultures through strategic engagement and safe moderation guidelines.',
-    icon: 'Users'
+    icon: 'Users',
+    skills: ['Discord', 'Telegram', 'Governance', 'Events', 'Moderation']
   },
   {
     id: 'exp-building',
     title: 'Full-Stack Building',
     description: 'Architecting scalable dApp interfaces and smart routing systems directly connected with modern node grids.',
-    icon: 'Layers'
+    icon: 'Layers',
+    skills: ['React', 'Solidity', 'TypeScript', 'Node.js', 'Web3.js']
   }
 ];
 

@@ -39,6 +39,7 @@ import ProjectDetail from './pages/ProjectDetail';
 import ProjectsPage, { mappedProjects } from './pages/ProjectsPage';
 import TeamShowcase from './components/ui/team-showcase';
 import { Gallery4 } from './components/ui/website-gallery';
+import { OrbitalTimelineDemo } from './components/ui/orbital-timeline-demo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -669,6 +670,11 @@ export default function App() {
                     <Gallery4 />
                   </div>
                 </section>
+
+                <section className="min-h-screen flex items-center bg-[#030008]">
+                  <OrbitalTimelineDemo />
+                </section>
+
                 <Services />
                 <Skills />
                 <Experience />
