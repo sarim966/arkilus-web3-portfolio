@@ -92,18 +92,18 @@ const Gallery4 = ({
   }, [carouselApi]);
 
   return (
-    <section className="px-12 py-0 my-0 bg-[#030014] relative overflow-hidden">
+    <section className="px-12 py-0 my-0 bg-[#030008] relative overflow-hidden">
       <div className="pt-0 pb-12 w-full">
-      {/* Ambient glow moved away from the seam to the center area */}
+      {/* Ambient glow removed for unified obsidian theme */}
 
       <div className="container mx-auto max-w-7xl px-6 min-h-[20vh] flex flex-col justify-center pt-8 pb-8">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 w-full">
           <div className="flex flex-col gap-4 text-left">
-            <h2 className="font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] uppercase drop-shadow-[0_0_15px_rgba(188,119,255,0.5)]">
+            <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.4)]">
               {title}
             </h2>
-            <p className="max-w-xl text-white/40 text-xs uppercase tracking-widest leading-relaxed">
-              EXPLORE MY PROJECT DEPLOYMENTS, LIVE INTERFACES AND TECHNICAL ARCHITECTURES
+            <p className="max-w-2xl text-white/40 text-sm md:text-base uppercase tracking-widest leading-relaxed">
+              Explore my project deployments, live interfaces and technical architectures.
             </p>
           </div>
           <div className="hidden shrink-0 gap-2 md:flex">
@@ -133,9 +133,9 @@ const Gallery4 = ({
         </div>
       </div>
 
-      {/* Arkilus Connective Thread (Visual Anchor) */}
-      <div className="relative h-20 w-full bg-[#030014] flex justify-center items-center overflow-visible mb-6">
-        <div className="w-[1px] h-full bg-gradient-to-b from-[#bc77ff] via-[#bc77ff]/50 to-transparent shadow-[0_0_15px_rgba(188,119,255,0.5)]" />
+      {/* Section divider - subtle obsidian */}
+      <div className="relative h-12 w-full bg-[#030008] flex justify-center items-center overflow-visible mb-6">
+        <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-[#bc77ff]/30 to-transparent" />
       </div>
 
       <div className="w-full px-10 md:px-20">
@@ -165,7 +165,7 @@ const Gallery4 = ({
                       />
                     )}
                     {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 h-full bg-gradient-to-t from-[#030014] via-[#030014]/60 to-transparent" />
+                    <div className="absolute inset-0 h-full bg-gradient-to-t from-[#030008] via-[#030008]/60 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 md:p-8">
                       {/* Tags */}
                       {item.tags && (
