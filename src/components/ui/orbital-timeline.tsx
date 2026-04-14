@@ -360,145 +360,159 @@ export default function RadialOrbitalTimeline({
                   {item.title}
                 </div>
 
-                {/* Expanded Card - Smart Offset & Mobile Responsive */}
-                <AnimatePresence>
-                  {isExpanded && (
-                    <>
-                      {/* Mobile Backdrop */}
-                      {isMobile && (
-                        <motion.div
-                          className="fixed inset-0 bg-black/80 z-40 md:hidden"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          onClick={() => {
-                            setPinnedItem(null);
-                            setExpandedItems({});
-                            setActiveNodeId(null);
-                          }}
-                        />
-                      )}
-                      <motion.div 
-                        className={`
-                          ${isMobile 
-                            ? 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100vw-32px)] max-w-[360px]' 
-                            : 'absolute top-1/2 left-1/2 -translate-x-[calc(50%-20px)] -translate-y-[calc(50%-20px)] w-80 z-20'
-                          }
-                        `}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.8 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                        onMouseEnter={handleCardHover}
-                        onMouseLeave={handleCardLeave}
-                        ref={cardRef}
-                      >
-                        {/* Sharp purple border with edge lighting */}
-                        <div 
-                          className="relative rounded-xl border border-[#9333ea]/50 bg-[#030008]/95"
-                          style={{
-                            boxShadow: `
-                              0 25px 50px -12px rgba(0, 0, 0, 0.9),
-                              0 0 40px rgba(147, 51, 234, 0.4),
-                              inset 0 1px 0 rgba(147, 51, 234, 0.2),
-                              0 0 0 1px rgba(147, 51, 234, 0.3)
-                            `
-                          }}
-                        >
-                          <Card className="w-full bg-transparent border-0 shadow-none overflow-hidden rounded-xl">
-                        
-                        <CardHeader className="pb-3 pt-5 px-5">
-                          {/* Category Badge - Top Left */}
-                          <div className="flex items-center gap-2 mb-3">
-                            <Badge className="px-2 py-0.5 text-[10px] text-purple-300 bg-[#9333ea]/20 border-[#9333ea]/40 font-mono tracking-widest">
-                              {item.category.toUpperCase()}
-                            </Badge>
-                            <span className="text-[10px] font-mono text-purple-400 tracking-wider">
-                              ID: 0{item.id}
-                            </span>
-                          </div>
-                          
-                          {/* Title - Centered */}
-                          <CardTitle className="text-base text-white font-semibold tracking-tighter text-center">
-                            {item.title}
-                          </CardTitle>
-                          
-                          {/* Subtle Separator Line */}
-                          <div className="w-full h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mt-3"></div>
-                        </CardHeader>
-                    
-                    <CardContent className="text-xs space-y-4 px-5 pb-5">
-                      {/* Description */}
-                      <p className="leading-relaxed text-purple-100 text-[11px]">{item.content}</p>
-
-                      {/* Proficiency Bar */}
-                      <div className="pt-2">
-                        <div className="flex justify-between items-center text-[10px] mb-1.5">
-                          <span className="flex items-center text-purple-300 font-mono uppercase tracking-wider">
-                            <BarChart3 size={10} className="mr-1.5 text-[#9333ea]" />
-                            Proficiency
-                          </span>
-                          <span className="font-mono text-purple-300 font-semibold">{item.energy}%</span>
-                        </div>
-                        <div className="w-full h-2 bg-black/60 rounded-full overflow-hidden border border-[#9333ea]/30">
-                          <div
-                            className="h-full bg-gradient-to-r from-[#9333ea] via-purple-400 to-purple-300 shadow-[0_0_8px_rgba(147,51,234,0.6)]"
-                            style={{ width: `${item.energy}%` }}
-                          ></div>
-                        </div>
-                      </div>
-
-                      {/* Strategic Impact - Bulleted List */}
-                      {item.impact && (
-                        <div className="pt-2 border-t border-[#9333ea]/20">
-                          <div className="flex items-center mb-2">
-                            <TrendingUp size={10} className="text-[#9333ea] mr-1.5" />
-                            <h4 className="text-[10px] uppercase tracking-widest font-semibold text-purple-300">
-                              Strategic Impact
-                            </h4>
-                          </div>
-                          <ul className="space-y-1">
-                            {item.impact.split('.').filter(s => s.trim()).slice(0, 3).map((point, idx) => (
-                              <li key={idx} className="text-[10px] text-purple-200 flex items-start">
-                                <span className="text-[#9333ea] mr-1.5 mt-0.5">•</span>
-                                {point.trim()}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {/* Core Tools - Compact Grid */}
-                      {item.stack && item.stack.length > 0 && (
-                        <div className="pt-2 border-t border-[#9333ea]/20">
-                          <div className="flex items-center mb-2">
-                            <Cpu size={10} className="text-[#9333ea] mr-1.5" />
-                            <h4 className="text-[10px] uppercase tracking-widest font-semibold text-purple-300">
-                              Core Tools
-                            </h4>
-                          </div>
-                          <div className="flex flex-wrap gap-1.5">
-                            {item.stack.slice(0, 4).map((tech, idx) => (
-                              <span
-                                key={idx}
-                                className="px-2 py-0.5 text-[9px] rounded-sm bg-[#9333ea]/20 border border-[#9333ea]/40 text-purple-200 font-mono"
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                        </div>
-                      </motion.div>
-                    </>
-                  )}
-                </AnimatePresence>
               </div>
             );
           })}
+          
+          {/* Centered Expertise Card - Outside node loop for true center alignment */}
+          <AnimatePresence>
+            {activeNodeId && (
+              <>
+                {/* Mobile Backdrop */}
+                {isMobile && (
+                  <motion.div
+                    className="fixed inset-0 bg-black/80 z-40 md:hidden"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => {
+                      setPinnedItem(null);
+                      setExpandedItems({});
+                      setActiveNodeId(null);
+                    }}
+                  />
+                )}
+                {/* Centered Card Container - Mathematical center */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <motion.div 
+                    className={`
+                      pointer-events-auto
+                      ${isMobile 
+                        ? 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 max-w-[360px]' 
+                        : 'relative z-50'
+                      }
+                    `}
+                    style={{
+                      width: isMobile ? 'calc(100vw - 32px)' : '280px',
+                      height: isMobile ? 'auto' : '280px',
+                    }}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    onMouseEnter={handleCardHover}
+                    onMouseLeave={handleCardLeave}
+                    ref={cardRef}
+                  >
+                    {/* Sharp purple border with edge lighting and backdrop blur */}
+                    <div 
+                      className="relative rounded-xl border border-[#9333ea]/50 bg-[#030008] backdrop-blur-md w-full h-full overflow-hidden"
+                      style={{
+                        boxShadow: `
+                          0 25px 50px -12px rgba(0, 0, 0, 0.9),
+                          0 0 40px rgba(147, 51, 234, 0.4),
+                          inset 0 1px 0 rgba(147, 51, 234, 0.2),
+                          0 0 0 1px rgba(147, 51, 234, 0.3)
+                        `
+                      }}
+                    >
+                      {(() => {
+                        const item = timelineData.find(i => i.id === activeNodeId);
+                        if (!item) return null;
+                        return (
+                          <Card className="w-full h-full bg-transparent border-0 shadow-none overflow-y-auto rounded-xl">
+                            <CardHeader className="pb-2 pt-4 px-4">
+                              {/* Category Badge - Top Left */}
+                              <div className="flex items-center gap-2 mb-2">
+                                <Badge className="px-2 py-0.5 text-[9px] text-purple-300 bg-[#9333ea]/20 border-[#9333ea]/40 font-mono tracking-widest">
+                                  {item.category.toUpperCase()}
+                                </Badge>
+                                <span className="text-[9px] font-mono text-purple-400 tracking-wider">
+                                  ID: 0{item.id}
+                                </span>
+                              </div>
+                              
+                              {/* Title - Centered */}
+                              <CardTitle className="text-sm text-white font-semibold tracking-tighter text-center">
+                                {item.title}
+                              </CardTitle>
+                              
+                              {/* Subtle Separator Line */}
+                              <div className="w-full h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mt-2"></div>
+                            </CardHeader>
+                        
+                            <CardContent className="text-xs space-y-3 px-4 pb-4">
+                              {/* Description */}
+                              <p className="leading-relaxed text-purple-100 text-[10px]">{item.content}</p>
+
+                              {/* Proficiency Bar - Compact */}
+                              <div className="pt-1">
+                                <div className="flex justify-between items-center text-[9px] mb-1">
+                                  <span className="flex items-center text-purple-300 font-mono uppercase tracking-wider">
+                                    <BarChart3 size={8} className="mr-1 text-[#9333ea]" />
+                                    Proficiency
+                                  </span>
+                                  <span className="font-mono text-purple-300 font-semibold">{item.energy}%</span>
+                                </div>
+                                <div className="w-full h-1 bg-black/60 rounded-full overflow-hidden border border-[#9333ea]/30">
+                                  <div
+                                    className="h-full bg-gradient-to-r from-[#9333ea] via-purple-400 to-purple-300 shadow-[0_0_6px_rgba(147,51,234,0.5)]"
+                                    style={{ width: `${item.energy}%` }}
+                                  ></div>
+                                </div>
+                              </div>
+
+                              {/* Strategic Impact - Bulleted List */}
+                              {item.impact && (
+                                <div className="pt-1.5 border-t border-[#9333ea]/20">
+                                  <div className="flex items-center mb-1">
+                                    <TrendingUp size={8} className="text-[#9333ea] mr-1" />
+                                    <h4 className="text-[9px] uppercase tracking-widest font-semibold text-purple-300">
+                                      Impact
+                                    </h4>
+                                  </div>
+                                  <ul className="space-y-0.5">
+                                    {item.impact.split('.').filter(s => s.trim()).slice(0, 2).map((point, idx) => (
+                                      <li key={idx} className="text-[9px] text-purple-200 flex items-start">
+                                        <span className="text-[#9333ea] mr-1 mt-0.5">•</span>
+                                        {point.trim()}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
+
+                              {/* Core Tools - Compact Grid */}
+                              {item.stack && item.stack.length > 0 && (
+                                <div className="pt-1.5 border-t border-[#9333ea]/20">
+                                  <div className="flex items-center mb-1">
+                                    <Cpu size={8} className="text-[#9333ea] mr-1" />
+                                    <h4 className="text-[9px] uppercase tracking-widest font-semibold text-purple-300">
+                                      Tools
+                                    </h4>
+                                  </div>
+                                  <div className="flex flex-wrap gap-1">
+                                    {item.stack.slice(0, 3).map((tech, idx) => (
+                                      <span
+                                        key={idx}
+                                        className="px-1.5 py-0.5 text-[8px] rounded-sm bg-[#9333ea]/20 border border-[#9333ea]/40 text-purple-200 font-mono"
+                                      >
+                                        {tech}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+                              )}
+                            </CardContent>
+                          </Card>
+                        );
+                      })()}
+                    </div>
+                  </motion.div>
+                </div>
+              </>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>
