@@ -381,8 +381,8 @@ export default function RadialOrbitalTimeline({
                       <motion.div 
                         className={`
                           ${isMobile 
-                            ? 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100vw-32px)] max-w-[320px]' 
-                            : 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 z-20'
+                            ? 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100vw-32px)] max-w-[360px]' 
+                            : 'absolute top-1/2 left-1/2 -translate-x-[calc(50%-20px)] -translate-y-[calc(50%-20px)] w-80 z-20'
                           }
                         `}
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -393,33 +393,91 @@ export default function RadialOrbitalTimeline({
                         onMouseLeave={handleCardLeave}
                         ref={cardRef}
                       >
-                        {/* Sharp purple border */}
+                        {/* Sharp purple border with edge lighting */}
                         <div 
-                          className="relative rounded-xl border border-[#9333ea]/40 bg-black/90 md:bg-black/80"
+                          className="relative rounded-xl border border-[#9333ea]/50 bg-[#030008]/95"
                           style={{
                             boxShadow: `
                               0 25px 50px -12px rgba(0, 0, 0, 0.9),
-                              0 0 30px rgba(147, 51, 234, 0.3),
-                              inset 0 1px 0 rgba(147, 51, 234, 0.1)
+                              0 0 40px rgba(147, 51, 234, 0.4),
+                              inset 0 1px 0 rgba(147, 51, 234, 0.2),
+                              0 0 0 1px rgba(147, 51, 234, 0.3)
                             `
                           }}
                         >
                           <Card className="w-full bg-transparent border-0 shadow-none overflow-hidden rounded-xl">
                         
-                        <CardHeader className="pb-2 pt-4 px-4">
-                          <CardTitle className="text-sm text-white font-semibold tracking-tighter text-center">
+                        <CardHeader className="pb-3 pt-5 px-5">
+                          {/* Category Badge - Top Left */}
+                          <div className="flex items-center gap-2 mb-3">
+                            <Badge className="px-2 py-0.5 text-[10px] text-purple-300 bg-[#9333ea]/20 border-[#9333ea]/40 font-mono tracking-widest">
+                              {item.category.toUpperCase()}
+                            </Badge>
+                            <span className="text-[10px] font-mono text-purple-400 tracking-wider">
+                              ID: 0{item.id}
+                            </span>
+                          </div>
+                          
+                          {/* Title - Centered */}
+                          <CardTitle className="text-base text-white font-semibold tracking-tighter text-center">
                             {item.title}
                           </CardTitle>
+                          
+                          {/* Subtle Separator Line */}
+                          <div className="w-full h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent mt-3"></div>
                         </CardHeader>
                     
-                    <CardContent className="text-xs space-y-3 px-4 pb-4">
-                      {/* Punchy Description */}
-                      <p className="leading-relaxed text-purple-100 text-center text-[11px]">{item.content}</p>
+                    <CardContent className="text-xs space-y-4 px-5 pb-5">
+                      {/* Description */}
+                      <p className="leading-relaxed text-purple-100 text-[11px]">{item.content}</p>
 
-                      {/* Core Tools - Compact Row */}
+                      {/* Proficiency Bar */}
+                      <div className="pt-2">
+                        <div className="flex justify-between items-center text-[10px] mb-1.5">
+                          <span className="flex items-center text-purple-300 font-mono uppercase tracking-wider">
+                            <BarChart3 size={10} className="mr-1.5 text-[#9333ea]" />
+                            Proficiency
+                          </span>
+                          <span className="font-mono text-purple-300 font-semibold">{item.energy}%</span>
+                        </div>
+                        <div className="w-full h-2 bg-black/60 rounded-full overflow-hidden border border-[#9333ea]/30">
+                          <div
+                            className="h-full bg-gradient-to-r from-[#9333ea] via-purple-400 to-purple-300 shadow-[0_0_8px_rgba(147,51,234,0.6)]"
+                            style={{ width: `${item.energy}%` }}
+                          ></div>
+                        </div>
+                      </div>
+
+                      {/* Strategic Impact - Bulleted List */}
+                      {item.impact && (
+                        <div className="pt-2 border-t border-[#9333ea]/20">
+                          <div className="flex items-center mb-2">
+                            <TrendingUp size={10} className="text-[#9333ea] mr-1.5" />
+                            <h4 className="text-[10px] uppercase tracking-widest font-semibold text-purple-300">
+                              Strategic Impact
+                            </h4>
+                          </div>
+                          <ul className="space-y-1">
+                            {item.impact.split('.').filter(s => s.trim()).slice(0, 3).map((point, idx) => (
+                              <li key={idx} className="text-[10px] text-purple-200 flex items-start">
+                                <span className="text-[#9333ea] mr-1.5 mt-0.5">•</span>
+                                {point.trim()}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {/* Core Tools - Compact Grid */}
                       {item.stack && item.stack.length > 0 && (
                         <div className="pt-2 border-t border-[#9333ea]/20">
-                          <div className="flex flex-wrap justify-center gap-1.5">
+                          <div className="flex items-center mb-2">
+                            <Cpu size={10} className="text-[#9333ea] mr-1.5" />
+                            <h4 className="text-[10px] uppercase tracking-widest font-semibold text-purple-300">
+                              Core Tools
+                            </h4>
+                          </div>
+                          <div className="flex flex-wrap gap-1.5">
                             {item.stack.slice(0, 4).map((tech, idx) => (
                               <span
                                 key={idx}
