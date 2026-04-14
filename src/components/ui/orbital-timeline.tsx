@@ -393,8 +393,8 @@ export default function RadialOrbitalTimeline({
                       }
                     `}
                     style={{
-                      width: isMobile ? 'calc(100vw - 32px)' : '280px',
-                      height: isMobile ? 'auto' : '280px',
+                      width: isMobile ? 'calc(100vw - 32px)' : '260px',
+                      height: isMobile ? 'auto' : '260px',
                     }}
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -424,8 +424,8 @@ export default function RadialOrbitalTimeline({
                             <CardHeader className="pb-2 pt-4 px-4">
                               {/* Category Badge - Top Left */}
                               <div className="flex items-center gap-2 mb-2">
-                                <Badge className="px-2 py-0.5 text-[9px] text-purple-300 bg-[#9333ea]/20 border-[#9333ea]/40 font-mono tracking-widest">
-                                  {item.category.toUpperCase()}
+                                <Badge className="px-2 py-0.5 text-[10px] text-purple-300 bg-[#9333ea]/20 border-[#9333ea]/40 font-mono tracking-widest">
+                                  {item.category}
                                 </Badge>
                                 <span className="text-[9px] font-mono text-purple-400 tracking-wider">
                                   ID: 0{item.id}
@@ -433,7 +433,7 @@ export default function RadialOrbitalTimeline({
                               </div>
                               
                               {/* Title - Centered */}
-                              <CardTitle className="text-sm text-white font-semibold tracking-tighter text-center">
+                              <CardTitle className="text-base text-white font-semibold tracking-tighter text-center">
                                 {item.title}
                               </CardTitle>
                               
@@ -467,13 +467,13 @@ export default function RadialOrbitalTimeline({
                                 <div className="pt-1.5 border-t border-[#9333ea]/20">
                                   <div className="flex items-center mb-1">
                                     <TrendingUp size={8} className="text-[#9333ea] mr-1" />
-                                    <h4 className="text-[9px] uppercase tracking-widest font-semibold text-purple-300">
+                                    <h4 className="text-[10px] uppercase tracking-widest font-semibold text-purple-300">
                                       Impact
                                     </h4>
                                   </div>
                                   <ul className="space-y-0.5">
-                                    {item.impact.split('.').filter(s => s.trim()).slice(0, 2).map((point, idx) => (
-                                      <li key={idx} className="text-[9px] text-purple-200 flex items-start">
+                                    {item.impact.split('.').filter(s => s.trim()).slice(0, 3).map((point, idx) => (
+                                      <li key={idx} className="text-[10px] text-purple-200 flex items-start">
                                         <span className="text-[#9333ea] mr-1 mt-0.5">•</span>
                                         {point.trim()}
                                       </li>
