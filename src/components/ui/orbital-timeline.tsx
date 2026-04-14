@@ -381,13 +381,13 @@ export default function RadialOrbitalTimeline({
                       <motion.div 
                         className={`
                           ${isMobile 
-                            ? 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100vw-32px)] max-w-[350px] max-h-[60vh]' 
-                            : `absolute ${position.y > 0 ? 'top-16' : 'bottom-16'} ${position.x > 0 ? 'left-14' : 'right-14'} w-80`
-                          } overflow-visible md:overflow-visible overflow-y-auto
+                            ? 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100vw-32px)] max-w-[320px]' 
+                            : 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 z-20'
+                          }
                         `}
-                        initial={{ opacity: 0, scale: 0.9, y: isMobile ? 0 : (position.y > 0 ? -10 : 10) }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.9, y: isMobile ? 0 : (position.y > 0 ? -10 : 10) }}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         onMouseEnter={handleCardHover}
                         onMouseLeave={handleCardLeave}
@@ -405,130 +405,29 @@ export default function RadialOrbitalTimeline({
                           }}
                         >
                           <Card className="w-full bg-transparent border-0 shadow-none overflow-hidden rounded-xl">
-                          {/* Connecting Line - Desktop only */}
-                          {!isMobile && (
-                            <div className={`absolute ${position.y > 0 ? '-top-3' : '-bottom-3'} left-1/2 -translate-x-1/2 w-px h-3 bg-gradient-to-b from-[#9333ea] to-transparent`}></div>
-                          )}
                         
-                        <CardHeader className="pb-2">
-                          <div className="flex justify-between items-center mb-1">
-                            <Badge className="px-2 py-0.5 text-[10px] text-purple-300 bg-[#9333ea]/20 border-[#9333ea]/40 font-mono tracking-widest">
-                              {item.category.toUpperCase()}
-                            </Badge>
-                            <span className="text-[10px] font-mono text-purple-400 tracking-wider">
-                              ID: 0{item.id}
-                            </span>
-                          </div>
-                          <CardTitle className="text-sm mt-1 text-white font-semibold tracking-tighter">
+                        <CardHeader className="pb-2 pt-4 px-4">
+                          <CardTitle className="text-sm text-white font-semibold tracking-tighter text-center">
                             {item.title}
                           </CardTitle>
                         </CardHeader>
                     
-                    <CardContent className="text-xs space-y-3">
-                      <p className="leading-relaxed text-purple-100">{item.content}</p>
+                    <CardContent className="text-xs space-y-3 px-4 pb-4">
+                      {/* Punchy Description */}
+                      <p className="leading-relaxed text-purple-100 text-center text-[11px]">{item.content}</p>
 
-                      {/* Proficiency / Mastery Level */}
-                      <div className="pt-3 border-t border-[#9333ea]/20">
-                        <div className="flex justify-between items-center text-[10px] mb-1.5">
-                          <span className="flex items-center text-purple-300 font-mono uppercase tracking-wider">
-                            <BarChart3 size={10} className="mr-1.5 text-[#9333ea]" />
-                            Proficiency
-                          </span>
-                          <span className="font-mono text-purple-300 font-semibold">{item.energy}%</span>
-                        </div>
-                        <div className="w-full h-1.5 bg-black/60 rounded-full overflow-hidden border border-[#9333ea]/30">
-                          <div
-                            className="h-full bg-gradient-to-r from-[#9333ea] via-purple-400 to-purple-300 shadow-[0_0_8px_rgba(147,51,234,0.6)]"
-                            style={{ width: `${item.energy}%` }}
-                          ></div>
-                        </div>
-                      </div>
-
-                      {/* Technical Stack */}
+                      {/* Core Tools - Compact Row */}
                       {item.stack && item.stack.length > 0 && (
-                        <div className="pt-3 border-t border-[#9333ea]/20">
-                          <div className="flex items-center mb-2">
-                            <Cpu size={10} className="text-[#9333ea] mr-1.5" />
-                            <h4 className="text-[10px] uppercase tracking-widest font-semibold text-purple-300">
-                              Technical Stack
-                            </h4>
-                          </div>
-                          <div className="flex flex-wrap gap-1">
-                            {item.stack.map((tech, idx) => (
+                        <div className="pt-2 border-t border-[#9333ea]/20">
+                          <div className="flex flex-wrap justify-center gap-1.5">
+                            {item.stack.slice(0, 4).map((tech, idx) => (
                               <span
                                 key={idx}
-                                className="px-1.5 py-0.5 text-[9px] rounded-sm bg-black/60 border border-[#9333ea]/30 text-purple-200 font-mono hover:bg-[#9333ea]/20 hover:border-[#9333ea]/50 transition-colors cursor-default"
+                                className="px-2 py-0.5 text-[9px] rounded-sm bg-[#9333ea]/20 border border-[#9333ea]/40 text-purple-200 font-mono"
                               >
                                 {tech}
                               </span>
                             ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Core Skills */}
-                      <div className="pt-3 border-t border-[#9333ea]/20">
-                        <div className="flex items-center mb-2">
-                          <Target size={10} className="text-[#9333ea] mr-1.5" />
-                          <h4 className="text-[10px] uppercase tracking-widest font-semibold text-purple-300">
-                            Core Competencies
-                          </h4>
-                        </div>
-                        <div className="flex flex-wrap gap-1">
-                          {item.skills?.map((skill, idx) => (
-                            <span
-                              key={idx}
-                              className="px-2 py-0.5 text-[9px] rounded-full bg-black/60 border border-[#9333ea]/30 text-purple-200"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Strategic Impact */}
-                      {item.impact && (
-                        <div className="pt-3 border-t border-[#9333ea]/20">
-                          <div className="flex items-center mb-1.5">
-                            <TrendingUp size={10} className="text-[#9333ea] mr-1.5" />
-                            <h4 className="text-[10px] uppercase tracking-widest font-semibold text-purple-300">
-                              Strategic Impact
-                            </h4>
-                          </div>
-                          <p className="text-[10px] text-purple-300 font-mono">{item.impact}</p>
-                        </div>
-                      )}
-
-                      {/* Connected Nodes */}
-                      {item.relatedIds.length > 0 && (
-                        <div className="pt-3 border-t border-[#9333ea]/20">
-                          <div className="flex items-center mb-2">
-                            <Link size={10} className="text-[#9333ea] mr-1.5" />
-                            <h4 className="text-[10px] uppercase tracking-widest font-semibold text-purple-300">
-                              Connected Nodes
-                            </h4>
-                          </div>
-                          <div className="flex flex-wrap gap-1">
-                            {item.relatedIds.map((relatedId) => {
-                              const relatedItem = timelineData.find(
-                                (i) => i.id === relatedId
-                              );
-                              return (
-                                <Button
-                                  key={relatedId}
-                                  variant="outline"
-                                  size="sm"
-                                  className="flex items-center h-6 px-2 py-0 text-[10px] rounded-sm border-[#9333ea]/30 bg-black/60 hover:bg-[#9333ea]/20 hover:border-[#9333ea]/50 text-purple-200 hover:text-white transition-all"
-                                  onClick={(e) => {
-                                    e.stopPropagation();
-                                    toggleItem(relatedId);
-                                  }}
-                                >
-                                  {relatedItem?.title}
-                                  <ArrowRight size={8} className="ml-1 text-[#9333ea]" />
-                                </Button>
-                              );
-                            })}
                           </div>
                         </div>
                       )}
