@@ -595,9 +595,9 @@ export default function App() {
               <Navbar />
               <main>
                 <Hero />
-                <section id="architecture" className="h-auto flex flex-col items-center pt-24 pb-0 my-0 overflow-hidden bg-[#030014] w-full">
+                <section id="architecture" className="h-auto flex flex-col items-center pt-24 pb-0 my-0 overflow-hidden bg-[#030008] w-full">
                   <div className="w-full flex flex-col items-center">
-                    <div className="text-left mb-12 w-full max-w-7xl px-6 relative z-20">
+                    <div className="text-left mb-12 w-full max-w-7xl mx-auto px-6 relative z-20">
                       <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.4)] mb-6">
                         PROJECTS I'VE WORKED WITH
                       </h2>
@@ -607,8 +607,6 @@ export default function App() {
                     </div>
                     
                     <div className="w-full relative z-10 flex flex-col items-center justify-center">
-                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(188,119,255,0.08)_0%,_rgba(0,0,0,0)_70%)] pointer-events-none" />
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#bc77ff]/10 blur-[160px] rounded-full -z-10" />
                       <div className="w-full relative z-20">
                         <TeamShowcase members={mappedProjects} />
                       </div>
