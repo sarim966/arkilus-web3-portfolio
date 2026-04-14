@@ -623,8 +623,18 @@ export default function App() {
                   </div>
                 </section>
 
-                <section className="min-h-screen flex items-center bg-[#030008]">
-                  <OrbitalTimelineDemo />
+                <section className="min-h-screen flex flex-col bg-[#030008] py-24">
+                  <div className="text-left mb-12 w-full max-w-7xl mx-auto px-6 relative z-20">
+                    <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.4)] mb-6">
+                      Skills & Expertise
+                    </h2>
+                    <p className="text-white/40 text-sm md:text-base max-w-2xl uppercase tracking-widest leading-relaxed">
+                      A curated look at my technical stack and the impact I bring to the Web3 ecosystem.
+                    </p>
+                  </div>
+                  <div className="flex-1 flex items-center justify-center w-full">
+                    <OrbitalTimelineDemo />
+                  </div>
                 </section>
 
                 <Skills />
