@@ -71,12 +71,12 @@ const GlowCard: React.FC<GlowCardProps> = ({
       '--border': '2',
       '--backdrop': 'hsl(0 0% 60% / 0.12)',
       '--backup-border': 'hsl(0 0% 60% / 0.12)',
-      '--size': '200',
+      '--size': '400',
       '--outer': '1',
       '--saturation': '100',
       '--lightness': '70',
-      '--bg-spot-opacity': '0.15',
-      '--border-spot-opacity': '0.8',
+      '--bg-spot-opacity': '0.35',
+      '--border-spot-opacity': '1.2',
       '--border-light-opacity': '0.3',
       backgroundImage: `radial-gradient(
         calc(var(--size, 200) * 1px) calc(var(--size, 200) * 1px) at
@@ -128,9 +128,9 @@ const GlowCard: React.FC<GlowCardProps> = ({
             calc(var(--size, 200) * 1px * 0.6) calc(var(--size, 200) * 1px * 0.6) at
             calc(var(--x, 0) * 1px)
             calc(var(--y, 0) * 1px),
-            hsl(calc(var(--base, 280) + (var(--xp, 0) * var(--spread, 300))) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 0.8)), transparent 100%
+            hsl(calc(var(--base, 280) + (var(--xp, 0) * var(--spread, 300))) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 60) * 1%) / var(--border-spot-opacity, 1.2)), transparent 100%
           );
-          filter: brightness(2);
+          filter: brightness(3.5);
         }
         
         [data-glow]::after {
@@ -138,7 +138,7 @@ const GlowCard: React.FC<GlowCardProps> = ({
             calc(var(--size, 200) * 1px * 0.4) calc(var(--size, 200) * 1px * 0.4) at
             calc(var(--x, 0) * 1px)
             calc(var(--y, 0) * 1px),
-            hsl(0 100% 100% / var(--border-light-opacity, 0.3)), transparent 100%
+            hsl(0 100% 100% / var(--border-light-opacity, 0.5)), transparent 100%
           );
         }
         
