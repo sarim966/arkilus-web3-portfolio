@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Button } from "./button";
+import { GlowCard } from "./spotlight-card";
 import {
   Carousel,
   CarouselApi,
@@ -149,8 +150,12 @@ const Gallery4 = ({
                 key={item.id}
                 className="pl-4 basis-full md:basis-1/2 lg:basis-1/4"
               >
-                <a href={item.href} target="_blank" rel="noopener noreferrer" className="group rounded-3xl block">
-                  <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-3xl border border-white/5 hover:border-[#bc77ff]/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(188,119,255,0.15)] md:aspect-[5/4] lg:aspect-[16/9]">
+                <a href={item.href} target="_blank" rel="noopener noreferrer" className="group block h-full">
+                  <GlowCard 
+                    customSize={true}
+                    glowColor="rgba(188, 119, 255, 0.4)"
+                    className="h-full min-h-[27rem] md:aspect-[5/4] lg:aspect-[16/9] hover:border-[#bc77ff]/40"
+                  >
                     {item.id === "seismic" || item.id === "base44" || item.id === "nodesync" || item.id === "mantle-ai" ? (
                       <img
                         src={item.image}
@@ -191,7 +196,7 @@ const Gallery4 = ({
                         <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
                       </div>
                     </div>
-                  </div>
+                  </GlowCard>
                 </a>
               </CarouselItem>
             ))}
