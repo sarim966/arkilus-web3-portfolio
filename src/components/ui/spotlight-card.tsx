@@ -67,7 +67,7 @@ export const GlowCard: React.FC<GlowCardProps> = ({
     const baseStyles: React.CSSProperties & { [key: string]: string | number } = {
       '--base': base,
       '--spread': spread,
-      '--radius': '14',
+      '--radius': '24',
       '--border': '3',
       '--backdrop': 'hsl(0 0% 60% / 0.12)',
       '--backup-border': 'hsl(0 0% 60% / 0.12)',
@@ -100,7 +100,7 @@ export const GlowCard: React.FC<GlowCardProps> = ({
           position: absolute;
           inset: calc(var(--border, 2) * 1px * -1);
           border: calc(var(--border, 2) * 1px) solid transparent;
-          border-radius: calc(var(--radius, 14) * 1px);
+          border-radius: calc(var(--radius, 24) * 1px);
           background-attachment: fixed;
           background-size: calc(100% + (2 * var(--border, 2) * 1px)) calc(100% + (2 * var(--border, 2) * 1px));
           background-repeat: no-repeat;
@@ -112,7 +112,7 @@ export const GlowCard: React.FC<GlowCardProps> = ({
         
         [data-glow]::before {
           background-image: radial-gradient(
-            calc(var(--size, 200) * 1px * 0.75) calc(var(--size, 200) * 1px * 0.75) at
+            calc(var(--size, 200) * 1px * 0.6) calc(var(--size, 200) * 1px * 0.6) at
             calc(var(--x, 0) * 1px)
             calc(var(--y, 0) * 1px),
             hsl(calc(var(--base, 280) + (var(--xp, 0) * var(--spread, 300))) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 0.8)), transparent 100%
@@ -134,7 +134,7 @@ export const GlowCard: React.FC<GlowCardProps> = ({
           inset: 0;
           will-change: filter;
           opacity: var(--outer, 1);
-          border-radius: calc(var(--radius, 14) * 1px);
+          border-radius: calc(var(--radius, 24) * 1px);
           border-width: calc(var(--border, 2) * 1px * 20);
           filter: blur(calc(var(--border, 2) * 1px * 10));
           background: none;
@@ -149,7 +149,7 @@ export const GlowCard: React.FC<GlowCardProps> = ({
         className={`
           ${getSizeClasses()}
           ${!customSize ? 'aspect-[3/4]' : ''}
-          rounded-2xl 
+          rounded-3xl 
           relative 
           grid 
           grid-rows-[1fr_auto] 

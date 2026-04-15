@@ -154,13 +154,13 @@ const Gallery4 = ({
                   <GlowCard
                     customSize={true}
                     glowColor="purple"
-                    className="h-full min-h-[27rem] max-w-full rounded-3xl border border-white/5 hover:border-[#bc77ff]/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(188,119,255,0.15)] md:aspect-[5/4] lg:aspect-[16/9] bg-[#030008] p-0 overflow-hidden"
+                    className="h-full min-h-[27rem] rounded-[2rem] overflow-hidden border border-white/5"
                   >
                     {item.id === "seismic" || item.id === "base44" || item.id === "nodesync" || item.id === "mantle-ai" ? (
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-48 object-cover"
+                        className="w-full h-48 object-cover rounded-t-[2rem]"
                       />
                     ) : (
                       <img
