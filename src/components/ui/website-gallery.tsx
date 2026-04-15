@@ -153,7 +153,7 @@ const Gallery4 = ({
                 <a href={item.href} target="_blank" rel="noopener noreferrer" className="group block h-full">
                   <GlowCard 
                     customSize={true}
-                    glowColor="rgba(188, 119, 255, 0.4)"
+                    glowColor="purple"
                     className="h-full min-h-[27rem] md:aspect-[5/4] lg:aspect-[16/9] hover:border-[#bc77ff]/40"
                   >
                     {item.id === "seismic" || item.id === "base44" || item.id === "nodesync" || item.id === "mantle-ai" ? (
