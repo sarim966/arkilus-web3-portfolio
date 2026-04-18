@@ -37,6 +37,7 @@ import ProjectsPage, { mappedProjects } from './pages/ProjectsPage';
 import TeamShowcase from './components/ui/team-showcase';
 import { Gallery4 } from './components/ui/website-gallery';
 import { OrbitalTimelineDemo } from './components/ui/orbital-timeline-demo';
+import { CyberneticBentoGrid } from './components/ui/cybernetic-bento-grid';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -397,42 +398,6 @@ const Websites = () => {
   );
 };
 
-const Skills = () => {
-  const getSkillIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'Layout': return <Layout size={20} />;
-      case 'Code2': return <Code2 size={20} />;
-      case 'MessageSquare': return <MessageSquare size={20} />;
-      case 'Database': return <Database size={20} />;
-      case 'Zap': return <Zap size={20} />;
-      case 'FileCode': return <FileCode size={20} />;
-      default: return <Code2 size={20} />;
-    }
-  };
-
-  return (
-    <section className="py-24">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-16 text-center">TALENTS & SKILLS</h2>
-        
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-          {SKILLS.map((skill) => (
-            <div key={skill.name} className="p-6 glass rounded-2xl flex flex-col items-center gap-4 hover:border-neon-purple/30 transition-all text-center">
-              <div className="text-neon-purple">
-                {getSkillIcon(skill.icon)}
-              </div>
-              <div>
-                <div className="text-sm font-bold mb-1">{skill.name}</div>
-                <div className="text-[10px] text-white/30 uppercase tracking-widest">{skill.category}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const Experience = () => {
   return (
     <section id="experience" className="py-24 bg-black/50">
@@ -635,7 +600,7 @@ export default function App() {
                   </div>
                 </section>
 
-                <Skills />
+                <CyberneticBentoGrid />
                 <Experience />
                 
                 {/* Testimonials Section */}
