@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-neon-purple: #b026ff;
+  --color-dark-bg: #05000a;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-white font-sans antialiased;
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    @apply bg-neon-purple/30 text-neon-purple;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-[#150525]/40 backdrop-blur-lg border border-purple-500/10;
+  }
+  
+  .neon-glow {
+    text-shadow: 0 0 10px rgba(176, 38, 255, 0.5);
+  }
+
+  .neon-border {
+    @apply border-neon-purple/50 shadow-[0_0_15px_rgba(176,38,255,0.2)];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-purple to-fuchsia-400;
+  }
+}
+
+/* Custom Purple Neon Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b026ff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(176, 38, 255, 0.5);
+}
+
+::-webkit-scrollbar-track {
+  background: #05000a;
+}
