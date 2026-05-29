@@ -279,3 +279,9 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 }
+
+@media (min-width: 1024px) {
+  .desktop-zoom-85 {
+    zoom: 0.85;
+  }
+}

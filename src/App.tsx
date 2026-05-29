@@ -422,139 +422,145 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden bg-[#05000a]">
+    <section id="contact" className="pt-32 pb-24 relative overflow-hidden bg-[#05000a]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#b026ff]/5 rounded-full blur-[120px]" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-          <div>
-            <h2 className="uppercase font-black italic tracking-tighter text-4xl sm:text-5xl md:text-6xl text-white drop-shadow-[0_0_15px_rgba(176,38,255,0.5)] mb-8">
-              WORK WITH <br /><span className="text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.4)]">ARKILUS</span>
-            </h2>
-            <p className="text-white/40 text-sm md:text-base max-w-md uppercase tracking-widest leading-relaxed mb-12">
-              Whether you need to scale content strategy, set up growth infrastructure, or build a secure dApp, let's explore your setup.
-            </p>
-            
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-[#bc77ff]">
-                  <Mail size={20} />
+        <div className="desktop-zoom-85">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 max-w-7xl mx-auto relative">
+            <div>
+              <h2 className="uppercase font-black italic tracking-tighter text-4xl sm:text-5xl md:text-6xl text-white drop-shadow-[0_0_15px_rgba(176,38,255,0.5)] mb-8">
+                WORK WITH <br /><span className="text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.4)]">ARKILUS</span>
+              </h2>
+              <p className="text-white/40 text-sm md:text-base max-w-md uppercase tracking-widest leading-relaxed mb-12">
+                Whether you need to scale content strategy, set up growth infrastructure, or build a secure dApp, let's explore your setup.
+              </p>
+              
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-[#bc77ff]">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <div className="text-xs text-white/40 uppercase font-bold tracking-widest">Email</div>
+                    <div className="text-lg font-bold">ksarim114@gmail.com</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs text-white/40 uppercase font-bold tracking-widest">Email</div>
-                  <div className="text-lg font-bold">ksarim114@gmail.com</div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-[#bc77ff]">
+                    <MessageSquare size={20} />
+                  </div>
+                  <div>
+                    <div className="text-xs text-white/40 uppercase font-bold tracking-widest">Discord</div>
+                    <div className="text-lg font-bold">sarim96</div>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-[#bc77ff]">
-                  <MessageSquare size={20} />
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-[#bc77ff]">
+                    <Send size={20} />
+                  </div>
+                  <div>
+                    <div className="text-xs text-white/40 uppercase font-bold tracking-widest">Telegram</div>
+                    <div className="text-lg font-bold">sarim_khan96</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs text-white/40 uppercase font-bold tracking-widest">Discord</div>
-                  <div className="text-lg font-bold">sarim96</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-[#bc77ff]">
-                  <Send size={20} />
-                </div>
-                <div>
-                  <div className="text-xs text-white/40 uppercase font-bold tracking-widest">Telegram</div>
-                  <div className="text-lg font-bold">sarim_khan96</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-[#bc77ff]">
-                  <Twitter size={20} />
-                </div>
-                <div>
-                  <div className="text-xs text-white/40 uppercase font-bold tracking-widest">X (Twitter)</div>
-                  <div className="text-lg font-bold">arkilus78</div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 glass rounded-xl flex items-center justify-center text-[#bc77ff]">
+                    <Twitter size={20} />
+                  </div>
+                  <div>
+                    <div className="text-xs text-white/40 uppercase font-bold tracking-widest">X (Twitter)</div>
+                    <div className="text-lg font-bold">arkilus78</div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          
-          <div 
-            onMouseMove={handleFormMouseMove}
-            onMouseEnter={() => setIsFormHovered(true)}
-            onMouseLeave={() => setIsFormHovered(false)}
-            className="glass p-10 rounded-[40px] border border-white/5 backdrop-blur-xl relative overflow-hidden"
-          >
-            {/* Animated radial hover background effect */}
-            <div 
-              className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
-              style={{
-                opacity: isFormHovered ? 1 : 0,
-                background: `radial-gradient(600px circle at ${formMousePos.x}px ${formMousePos.y}px, rgba(176, 38, 255, 0.06), transparent 80%)`
-              }}
-            />
             
-            <form className="space-y-6 relative z-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Cybernetic Vertical Divider Line */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1px] hidden md:block bg-gradient-to-b from-transparent via-purple-500/15 to-transparent h-[80%] my-auto" />
+
+            <div 
+              onMouseMove={handleFormMouseMove}
+              onMouseEnter={() => setIsFormHovered(true)}
+              onMouseLeave={() => setIsFormHovered(false)}
+              className="glass p-8 lg:p-9 rounded-[40px] border border-white/5 backdrop-blur-xl relative overflow-hidden md:max-w-[500px]"
+            >
+              {/* Animated radial hover background effect */}
+              <div 
+                className="absolute inset-0 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  opacity: isFormHovered ? 1 : 0,
+                  background: `radial-gradient(600px circle at ${formMousePos.x}px ${formMousePos.y}px, rgba(176, 38, 255, 0.06), transparent 80%)`
+                }}
+              />
+              
+              <form className="space-y-5 relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-widest text-white/40">Name</label>
+                    <input 
+                      type="text" 
+                      className="w-full bg-[#150525]/40 border border-white/10 rounded-xl px-4 py-2.5 focus:border-[#bc77ff] focus:shadow-[0_0_15px_rgba(188,119,255,0.25)] outline-none transition-all duration-300 text-white placeholder-white/30" 
+                      placeholder="John Doe" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-widest text-white/40">Email</label>
+                    <input 
+                      type="email" 
+                      className="w-full bg-[#150525]/40 border border-white/10 rounded-xl px-4 py-2.5 focus:border-[#bc77ff] focus:shadow-[0_0_15px_rgba(188,119,255,0.25)] outline-none transition-all duration-300 text-white placeholder-white/30" 
+                      placeholder="john@example.com" 
+                    />
+                  </div>
+                </div>
+  
+                {/* Service Selection */}
+                <div className="space-y-3">
+                  <label className="text-[14px] font-bold leading-relaxed text-white/50 tracking-normal">Select Services</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                    {['Content Strategy', 'Community Growth', 'Website / dApp'].map((service) => (
+                      <button
+                        type="button"
+                        key={service}
+                        onClick={() => toggleService(service)}
+                        className={`p-3 rounded-xl border text-[14px] font-medium leading-relaxed transition-all duration-300 ${
+                          selectedServices.includes(service)
+                            ? 'border-[#bc77ff] bg-[#bc77ff]/10 text-white shadow-[0_0_10px_rgba(188,119,255,0.15)]'
+                            : 'border-white/10 bg-[#150525]/40 text-white/60 hover:border-white/25 hover:text-white'
+                        }`}
+                      >
+                        {service}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+  
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-white/40">Name</label>
-                  <input 
-                    type="text" 
-                    className="w-full bg-[#150525]/40 border border-white/10 rounded-xl px-4 py-3 focus:border-[#bc77ff] focus:shadow-[0_0_15px_rgba(188,119,255,0.25)] outline-none transition-all duration-300 text-white placeholder-white/30" 
-                    placeholder="John Doe" 
+                  <label className="text-xs font-bold uppercase tracking-widest text-white/40">Message</label>
+                  <textarea 
+                    rows={4} 
+                    className="w-full bg-[#150525]/40 border border-white/10 rounded-xl px-4 py-2.5 focus:border-[#bc77ff] focus:shadow-[0_0_15px_rgba(188,119,255,0.25)] outline-none transition-all duration-300 resize-none text-white placeholder-white/30" 
+                    placeholder="Tell me about your project..."
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-white/40">Email</label>
-                  <input 
-                    type="email" 
-                    className="w-full bg-[#150525]/40 border border-white/10 rounded-xl px-4 py-3 focus:border-[#bc77ff] focus:shadow-[0_0_15px_rgba(188,119,255,0.25)] outline-none transition-all duration-300 text-white placeholder-white/30" 
-                    placeholder="john@example.com" 
-                  />
-                </div>
-              </div>
-
-              {/* Service Selection */}
-              <div className="space-y-3">
-                <label className="text-[14px] font-bold leading-relaxed text-white/50 tracking-normal">Select Services</label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                  {['Content Strategy', 'Community Growth', 'Website / dApp'].map((service) => (
-                    <button
-                      type="button"
-                      key={service}
-                      onClick={() => toggleService(service)}
-                      className={`p-3 rounded-xl border text-[14px] font-medium leading-relaxed transition-all duration-300 ${
-                        selectedServices.includes(service)
-                          ? 'border-[#bc77ff] bg-[#bc77ff]/10 text-white shadow-[0_0_10px_rgba(188,119,255,0.15)]'
-                          : 'border-white/10 bg-[#150525]/40 text-white/60 hover:border-white/25 hover:text-white'
-                      }`}
-                    >
-                      {service}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-white/40">Message</label>
-                <textarea 
-                  rows={4} 
-                  className="w-full bg-[#150525]/40 border border-white/10 rounded-xl px-4 py-3 focus:border-[#bc77ff] focus:shadow-[0_0_15px_rgba(188,119,255,0.25)] outline-none transition-all duration-300 resize-none text-white placeholder-white/30" 
-                  placeholder="Tell me about your project..."
-                />
-              </div>
-
-              <motion.button 
-                type="submit"
-                animate={{ scale: [1, 1.01, 1] }}
-                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                className="w-full py-4 bg-[#150525]/20 border border-[#bc77ff]/50 rounded-xl text-[14px] font-bold uppercase tracking-wider text-[#bc77ff] hover:text-white hover:bg-[#bc77ff]/20 hover:border-[#bc77ff] hover:shadow-[0_0_20px_rgba(188,119,255,0.25)] transition-all duration-300 cursor-pointer"
-              >
-                Send Message
-              </motion.button>
-            </form>
+  
+                <motion.button 
+                  type="submit"
+                  animate={{ scale: [1, 1.01, 1] }}
+                  transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                  className="w-full py-4 bg-[#150525]/20 border border-[#bc77ff]/50 rounded-xl text-[14px] font-bold uppercase tracking-wider text-[#bc77ff] hover:text-white hover:bg-[#bc77ff]/20 hover:border-[#bc77ff] hover:shadow-[0_0_20px_rgba(188,119,255,0.25)] transition-all duration-300 cursor-pointer"
+                >
+                  Send Message
+                </motion.button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 };
+
 
 const Footer = () => {
   return (
