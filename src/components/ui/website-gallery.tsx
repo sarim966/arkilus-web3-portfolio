@@ -93,7 +93,7 @@ const Gallery4 = ({
   }, [carouselApi]);
 
   return (
-    <section className="px-12 py-0 my-0 bg-[#030008] relative overflow-hidden">
+    <section className="px-12 py-0 my-0 relative overflow-hidden">
       <div className="pt-0 pb-12 w-full">
       {/* Ambient glow removed for unified obsidian theme */}
 
@@ -134,10 +134,7 @@ const Gallery4 = ({
         </div>
       </div>
 
-      {/* Section divider - subtle obsidian */}
-      <div className="relative h-12 w-full bg-[#030008] flex justify-center items-center overflow-visible mb-6">
-        <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-[#bc77ff]/30 to-transparent" />
-      </div>
+
 
       <div className="w-full px-10 md:px-20">
         <Carousel
@@ -154,7 +151,7 @@ const Gallery4 = ({
                   <GlowCard
                     customSize={true}
                     glowColor="purple"
-                    className="h-full min-h-[27rem] max-w-full rounded-[2rem] border border-white/5 hover:border-purple-500/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(168,85,247,0.1)] md:aspect-[5/4] lg:aspect-[16/9] bg-[#030008]"
+                    className="h-full min-h-[27rem] max-w-full rounded-[2rem] border border-white/5 hover:border-purple-500/40 transition-all duration-500 hover:shadow-[0_0_40px_rgba(168,85,247,0.1)] md:aspect-[5/4] lg:aspect-[16/9] bg-[#05000a]"
                   >
                     {item.id === "seismic" || item.id === "base44" || item.id === "nodesync" || item.id === "mantle-ai" ? (
                       <img
@@ -170,7 +167,7 @@ const Gallery4 = ({
                       />
                     )}
                     {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 h-full bg-gradient-to-t from-[#030008] via-[#030008]/60 to-transparent" />
+                    <div className="absolute inset-0 h-full bg-gradient-to-t from-[#05000a] via-[#05000a]/60 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 md:p-8">
                       {/* Tags */}
                       {item.tags && (

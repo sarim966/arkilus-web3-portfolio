@@ -49,7 +49,7 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 800);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -68,10 +68,10 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex justify-center w-full fixed top-8 z-50 px-4">
+    <div className={`flex justify-center w-full fixed top-8 z-50 px-4 transition-all duration-500 ease-in-out ${scrolled ? '-translate-y-[250%] opacity-0 pointer-events-none' : 'translate-y-0'}`}>
       <nav 
         onMouseMove={handleMouseMove}
-        className="w-full max-w-5xl rounded-full bg-white px-4 py-2 flex justify-between items-center shadow-2xl relative overflow-hidden group/nav"
+        className="w-full max-w-5xl rounded-full bg-white text-black shadow-lg px-4 py-2 flex justify-between items-center relative overflow-hidden group/nav"
       >
         {/* Glow absolute tracker following mouse */}
         <div 
@@ -86,7 +86,7 @@ const Navbar = () => {
             A
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="font-bold text-[#1a1a1a] text-sm tracking-tighter">ARKILUS</span>
+            <span className="font-bold text-black text-sm tracking-tighter">ARKILUS</span>
             <span className="text-[10px] text-neon-purple font-medium italic opacity-70">WEB3 PORTFOLIO</span>
           </div>
         </div>
@@ -97,7 +97,7 @@ const Navbar = () => {
             <a 
               key={link.name} 
               href={link.href} 
-              className="text-[11px] font-black text-[#1a1a1a] hover:text-neon-purple transition-colors uppercase tracking-[0.2em]"
+              className="text-[11px] font-black text-black/70 hover:text-black transition-colors uppercase tracking-[0.2em]"
             >
               {link.name}
             </a>
@@ -108,7 +108,7 @@ const Navbar = () => {
           <button 
             onMouseEnter={() => setIsConnectOpen(true)}
             onMouseLeave={() => setIsConnectOpen(false)}
-            className="px-6 py-3 bg-[#2a2420] text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-[#3d342e] transition-colors flex items-center gap-2 relative z-10"
+            className="px-6 py-3 bg-black text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-black/90 transition-colors flex items-center gap-2 relative z-10"
           >
             Connect
           </button>
@@ -121,7 +121,7 @@ const Navbar = () => {
                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
                 onMouseEnter={() => setIsConnectOpen(true)}
                 onMouseLeave={() => setIsConnectOpen(false)}
-                className="absolute top-12 right-0 bg-white shadow-2xl rounded-2xl p-4 border border-black/5 w-48 flex flex-col gap-2 z-50"
+                className="absolute top-12 right-0 bg-black/90 backdrop-blur-xl border border-white/10 shadow-[0_0_30px_rgba(168,85,247,0.15)] rounded-2xl p-4 w-48 flex flex-col gap-2 z-50"
               >
                 {[
                   { icon: <Twitter size={14} />, name: 'Twitter (X)', href: SOCIAL_LINKS.twitter },
@@ -132,7 +132,7 @@ const Navbar = () => {
                     key={index} 
                     href={item.href} 
                     target="_blank" 
-                    className="flex items-center gap-3 p-2 hover:bg-neon-purple/5 rounded-xl transition-colors text-[11px] font-bold text-[#1a1a1a] hover:text-neon-purple"
+                    className="flex items-center gap-3 p-2 hover:bg-white/10 rounded-xl transition-colors text-[11px] font-bold text-white/70 hover:text-white"
                   >
                     <div className="text-neon-purple">{item.icon}</div>
                     {item.name}
@@ -144,7 +144,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden text-[#1a1a1a] p-2 relative z-10" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-black p-2 relative z-10" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
@@ -156,14 +156,14 @@ const Navbar = () => {
             initial={{ opacity: 0, scale: 0.95, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
-            className="absolute top-20 left-4 right-4 bg-white rounded-[2rem] md:hidden py-8 flex flex-col items-center gap-6 shadow-2xl z-40 border border-black/5"
+            className="absolute top-20 left-4 right-4 bg-black/90 backdrop-blur-xl border border-white/10 rounded-[2rem] md:hidden py-8 flex flex-col items-center gap-6 shadow-2xl z-40"
           >
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href} 
                 onClick={() => setIsOpen(false)}
-                className="text-sm font-black text-[#1a1a1a] hover:text-neon-purple uppercase tracking-widest"
+                className="text-sm font-black text-white/70 hover:text-white uppercase tracking-widest transition-colors"
               >
                 {link.name}
               </a>
@@ -171,7 +171,7 @@ const Navbar = () => {
             <a 
               href="#contact" 
               onClick={() => setIsOpen(false)}
-              className="px-8 py-4 w-3/4 text-center bg-[#2a2420] text-white text-xs font-black uppercase tracking-widest rounded-full"
+              className="px-8 py-4 w-3/4 text-center bg-white text-black text-xs font-black uppercase tracking-widest rounded-full hover:bg-white/90 transition-colors"
             >
               Connect
             </a>
@@ -184,7 +184,7 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen w-full flex flex-col justify-center pt-28 lg:pt-36 pb-24 md:pb-32 overflow-hidden">
+    <section id="home" className="relative min-h-screen w-full pt-32 md:pt-40 pb-28 md:pb-36 overflow-hidden scroll-mt-32 lg:scroll-mt-40">
       {/* Background Video */}
       <video 
         autoPlay 
@@ -195,23 +195,24 @@ const Hero = () => {
       >
         <source src="/background.mp4" type="video/mp4" />
       </video>
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent z-0 pointer-events-none"></div>
       
-      <div className="container mx-auto px-6 md:px-20 relative z-10 w-full pt-20">
+      <div className="container mx-auto px-6 md:px-20 relative z-10 w-full">
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="max-w-4xl"
+          className="max-w-4xl flex flex-col justify-center gap-6 md:gap-8"
         >
           {/* Header Section */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] mb-8 tracking-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight">
             <span className="font-medium">ARKILUS</span> <span className="font-black italic">WEB3</span><br />
             <span className="font-light italic opacity-90">PORTFOLIO</span>
           </h1>
 
           {/* New Pill Button Style */}
-          <div className="flex mb-16">
+          <div className="flex">
             <button className="bg-white text-black py-3 px-8 rounded-full font-bold flex items-center gap-4 hover:bg-white/90 transition-all shadow-xl group">
               <span className="text-sm">Explore my works</span>
               <div className="w-8 h-8 rounded-full bg-neon-purple flex items-center justify-center text-white group-hover:scale-110 transition-transform">
@@ -221,7 +222,7 @@ const Hero = () => {
           </div>
 
           {/* Bottom Left Features (Inspired by the medical UI) */}
-          <div className="flex flex-col gap-4 mt-12">
+          <div className="flex flex-col gap-4">
             {[
               "Content creator + Community manager + Builder",
               "Specializing in decentralized architecture and modern Web3",
@@ -635,17 +636,17 @@ const Footer = () => {
     <footer className="py-12 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-white/30 text-sm">
-          © {new Date().getFullYear()} Builder.eth — All rights reserved.
+          © {new Date().getFullYear()} ARKILUS. All rights reserved.
         </div>
         
         <div className="flex items-center gap-8">
-          <a href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-neon-purple transition-colors text-sm font-bold uppercase tracking-widest">Twitter</a>
-          <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-neon-purple transition-colors text-sm font-bold uppercase tracking-widest">GitHub</a>
-          <a href={SOCIAL_LINKS.telegram} target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-neon-purple transition-colors text-sm font-bold uppercase tracking-widest">Telegram</a>
+          <a href="https://x.com/arkilus78" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors cursor-pointer">X</a>
+          <a href="https://github.com/sarim966" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors cursor-pointer">GitHub</a>
+          <a href="https://t.me/sarim_khan96" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-white transition-colors cursor-pointer">Telegram</a>
         </div>
         
-        <div className="flex items-center gap-2 text-white/30 text-xs">
-          Built with <Zap size={12} className="text-neon-purple" /> and Precision
+        <div className="flex items-center gap-2 text-white/50">
+          <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> SYSTEMS ONLINE
         </div>
       </div>
     </footer>
@@ -662,43 +663,49 @@ export default function App() {
               <Navbar />
               <main>
                 <Hero />
-                <section id="projects" className="min-h-screen w-full flex flex-col justify-center py-24 md:py-32 overflow-hidden bg-[#030008]">
-                  <div className="w-full flex flex-col items-center">
-                    <div className="text-left mb-12 w-full max-w-7xl mx-auto px-6 relative z-20">
-                      <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.4)] mb-6">
-                        PROJECTS I'VE WORKED WITH
-                      </h2>
-                      <p className="text-white/40 text-sm md:text-base max-w-2xl uppercase tracking-widest leading-relaxed">
-                        Click any project to dive into my X content and technical insights.
-                      </p>
-                    </div>
-                    
-                    <div className="w-full relative z-10 flex flex-col items-center justify-center">
-                      <div className="w-full relative z-20">
-                        <TeamShowcase members={mappedProjects} />
+                <section id="projects" className="min-h-screen w-full flex flex-col justify-center overflow-hidden pt-20 lg:pt-24 scroll-mt-32 lg:scroll-mt-40">
+                  <div className="w-full flex flex-col items-center" style={{ zoom: 0.85 }}>
+                    <div className="w-full flex flex-col items-center">
+                      <div className="text-left mb-6 w-full max-w-7xl mx-auto px-6 relative z-20">
+                        <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.4)]">
+                          PROJECTS I'VE WORKED WITH
+                        </h2>
+                        <p className="text-white/40 text-sm md:text-base max-w-2xl uppercase tracking-widest leading-relaxed">
+                          Click any project to dive into my X content and technical insights.
+                        </p>
+                      </div>
+                      
+                      <div className="w-full relative z-10 flex flex-col items-center justify-center">
+                        <div className="w-full relative z-20">
+                          <TeamShowcase members={mappedProjects} />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </section>
                 
 
-                <section id="websites" className="min-h-screen w-full flex flex-col justify-center py-24 md:py-32 bg-[#030014]">
-                  <div className="w-full">
-                    <Gallery4 />
+                <section id="websites" className="min-h-screen w-full flex flex-col justify-center overflow-hidden scroll-mt-32 lg:scroll-mt-40">
+                  <div className="w-full flex flex-col items-center" style={{ zoom: 0.85 }}>
+                    <div className="w-full">
+                      <Gallery4 />
+                    </div>
                   </div>
                 </section>
 
-                <section id="services" className="min-h-screen w-full flex flex-col justify-center py-24 md:py-32 bg-[#030008]">
-                  <div className="text-left mb-12 w-full max-w-7xl mx-auto px-6 relative z-20">
-                    <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.4)] mb-6">
-                      Skills & Expertise
-                    </h2>
-                    <p className="text-white/40 text-sm md:text-base max-w-2xl uppercase tracking-widest leading-relaxed">
-                      A curated look at my technical stack and the impact I bring to the Web3 ecosystem.
-                    </p>
-                  </div>
-                  <div className="flex-1 flex items-center justify-center w-full">
-                    <OrbitalTimelineDemo />
+                <section id="services" className="min-h-screen w-full flex flex-col justify-center overflow-hidden">
+                  <div className="w-full flex flex-col items-center" style={{ zoom: 0.85 }}>
+                    <div className="text-left mb-6 w-full max-w-7xl mx-auto px-6 relative z-20 bg-transparent">
+                      <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.4)]">
+                        Skills & Expertise
+                      </h2>
+                      <p className="text-white/40 text-sm md:text-base max-w-2xl uppercase tracking-widest leading-relaxed">
+                        A curated look at my technical stack and the impact I bring to the Web3 ecosystem.
+                      </p>
+                    </div>
+                    <div className="flex-1 flex items-center justify-center w-full">
+                      <OrbitalTimelineDemo />
+                    </div>
                   </div>
                 </section>
 

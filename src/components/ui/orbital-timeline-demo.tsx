@@ -79,7 +79,7 @@ const timelineData = [
 
 export function OrbitalTimelineDemo() {
   return (
-    <section className="w-full h-screen bg-[#030008]">
+    <section className="w-full h-screen">
       <OrbitalTimeline timelineData={timelineData} />
     </section>
   );
