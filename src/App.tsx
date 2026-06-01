@@ -184,7 +184,7 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-screen w-full flex flex-col justify-center pt-28 lg:pt-36 pb-24 md:pb-32 overflow-hidden">
       {/* Background Video */}
       <video 
         autoPlay 
@@ -406,6 +406,11 @@ const Contact = () => {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [formMousePos, setFormMousePos] = useState({ x: 0, y: 0 });
   const [isFormHovered, setIsFormHovered] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [buttonText, setButtonText] = useState('Send Message');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleFormMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -419,6 +424,57 @@ const Contact = () => {
     setSelectedServices(prev => 
       prev.includes(service) ? prev.filter(s => s !== service) : [...prev, service]
     );
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    try {
+      // Build FormData directly from the DOM form element.
+      // All inputs with name="" attributes are auto-captured.
+      const formData = new FormData(e.currentTarget);
+      // Append services separately since they are chip-toggle buttons, not native inputs
+      formData.append("fi-text-services", selectedServices.join(", "));
+
+      const response = await fetch("https://getform.io/f/ejri55ydbwd", {
+        method: "POST",
+        body: formData,
+        // IMPORTANT: Do NOT set Content-Type header manually.
+        // The browser must auto-set multipart/form-data with the correct boundary.
+        headers: {
+          "Accept": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setName('');
+        setEmail('');
+        setMessage('');
+        setSelectedServices([]);
+        setButtonText('TRANSMISSION RECEIVED');
+        setTimeout(() => {
+          setButtonText('Send Message');
+        }, 3500);
+      } else {
+        const errorBody = await response.text();
+        console.log("Getform Error Status:", response.status, response.statusText);
+        console.log("Getform Error Body:", errorBody);
+        setButtonText('ERROR SENDING');
+        setTimeout(() => {
+          setButtonText('Send Message');
+        }, 3500);
+      }
+    } catch (error) {
+      console.log("Getform Network Error:", error);
+      setButtonText('ERROR SENDING');
+      setTimeout(() => {
+        setButtonText('Send Message');
+      }, 3500);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -494,12 +550,16 @@ const Contact = () => {
                 }}
               />
               
-              <form className="space-y-5 relative z-10">
+              <form onSubmit={handleSubmit} className="space-y-5 relative z-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-widest text-white/40">Name</label>
                     <input 
                       type="text" 
+                      name="fi-sender-fullName"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
                       className="w-full bg-[#150525]/40 border border-white/10 rounded-xl px-4 py-2.5 focus:border-[#bc77ff] focus:shadow-[0_0_15px_rgba(188,119,255,0.25)] outline-none transition-all duration-300 text-white placeholder-white/30" 
                       placeholder="John Doe" 
                     />
@@ -508,6 +568,10 @@ const Contact = () => {
                     <label className="text-xs font-bold uppercase tracking-widest text-white/40">Email</label>
                     <input 
                       type="email" 
+                      name="fi-sender-email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
                       className="w-full bg-[#150525]/40 border border-white/10 rounded-xl px-4 py-2.5 focus:border-[#bc77ff] focus:shadow-[0_0_15px_rgba(188,119,255,0.25)] outline-none transition-all duration-300 text-white placeholder-white/30" 
                       placeholder="john@example.com" 
                     />
@@ -539,6 +603,10 @@ const Contact = () => {
                   <label className="text-xs font-bold uppercase tracking-widest text-white/40">Message</label>
                   <textarea 
                     rows={4} 
+                    name="fi-text-message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
                     className="w-full bg-[#150525]/40 border border-white/10 rounded-xl px-4 py-2.5 focus:border-[#bc77ff] focus:shadow-[0_0_15px_rgba(188,119,255,0.25)] outline-none transition-all duration-300 resize-none text-white placeholder-white/30" 
                     placeholder="Tell me about your project..."
                   />
@@ -550,7 +618,7 @@ const Contact = () => {
                   transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
                   className="w-full py-4 bg-[#150525]/20 border border-[#bc77ff]/50 rounded-xl text-[14px] font-bold uppercase tracking-wider text-[#bc77ff] hover:text-white hover:bg-[#bc77ff]/20 hover:border-[#bc77ff] hover:shadow-[0_0_20px_rgba(188,119,255,0.25)] transition-all duration-300 cursor-pointer"
                 >
-                  Send Message
+                  {buttonText}
                 </motion.button>
               </form>
             </div>
@@ -594,7 +662,7 @@ export default function App() {
               <Navbar />
               <main>
                 <Hero />
-                <section id="architecture" className="h-auto flex flex-col items-center pt-24 pb-0 my-0 overflow-hidden bg-[#030008] w-full">
+                <section id="projects" className="min-h-screen w-full flex flex-col justify-center py-24 md:py-32 overflow-hidden bg-[#030008]">
                   <div className="w-full flex flex-col items-center">
                     <div className="text-left mb-12 w-full max-w-7xl mx-auto px-6 relative z-20">
                       <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.4)] mb-6">
@@ -614,13 +682,13 @@ export default function App() {
                 </section>
                 
 
-                <section id="websites" className="h-auto bg-[#030014] py-0 my-0">
+                <section id="websites" className="min-h-screen w-full flex flex-col justify-center py-24 md:py-32 bg-[#030014]">
                   <div className="w-full">
                     <Gallery4 />
                   </div>
                 </section>
 
-                <section className="min-h-screen flex flex-col bg-[#030008] py-24">
+                <section id="services" className="min-h-screen w-full flex flex-col justify-center py-24 md:py-32 bg-[#030008]">
                   <div className="text-left mb-12 w-full max-w-7xl mx-auto px-6 relative z-20">
                     <h2 className="uppercase font-black italic tracking-tighter text-3xl md:text-5xl text-[#bc77ff] drop-shadow-[0_0_15px_rgba(188,119,255,0.4)] mb-6">
                       Skills & Expertise

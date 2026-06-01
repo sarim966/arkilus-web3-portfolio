@@ -57,7 +57,7 @@ const ExperienceCard = ({ item, index }: { item: any; index: number }) => {
 
 export const ExperienceHistory = () => {
   return (
-    <section id="experience" className="experience-container w-full flex flex-col items-center justify-center py-24 bg-[#05000a] relative overflow-hidden">
+    <section id="experience" className="experience-container w-full min-h-screen flex flex-col justify-center items-center py-24 md:py-32 bg-[#05000a] relative overflow-hidden">
       <style>{`
         .experience-container {
           zoom: 0.85;
