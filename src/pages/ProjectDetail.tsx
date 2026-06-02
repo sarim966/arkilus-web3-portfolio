@@ -30,48 +30,39 @@ export default function ProjectDetail() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="min-h-screen bg-[#05000a] text-white selection:bg-white/20 pb-24"
+      className="min-h-screen bg-[#05000a] text-white selection:bg-white/20 pb-24 relative"
     >
-      {/* Header / Top Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-black/40 backdrop-blur-md border-b border-white/5 flex justify-between items-center">
-        <button 
-          onClick={() => navigate('/')}
-          className="flex items-center gap-2 px-4 py-2 glass rounded-full border border-white/10 hover:border-neon-purple/50 hover:bg-neon-purple/5 hover:text-neon-purple transition-all duration-300 group"
-        >
-          <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-          <span className="text-xs font-bold uppercase tracking-widest">Back</span>
-        </button>
-        
-        <h1 className="text-lg font-black tracking-tight">{project.title}</h1>
-        
-        <div className="w-20" /> {/* Spacer for centering title */}
-      </div>
+      <button 
+        onClick={() => navigate('/')}
+        className="flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 hover:-translate-x-1 transition-all duration-300 absolute top-8 left-8 z-50"
+      >
+        <ArrowLeft size={16} />
+        <span className="text-xs font-bold uppercase tracking-widest">Back</span>
+      </button>
 
       {/* Hero / Header Container */}
       <section className="relative pt-32 pb-12 px-6 md:px-20 overflow-hidden text-center">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-neon-purple/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />
         
-        <div className="max-w-4xl mx-auto relative z-10">
-          <span className="text-[10px] font-black text-neon-purple uppercase tracking-widest bg-neon-purple/10 px-4 py-1.5 rounded-full mb-4 inline-block border border-neon-purple/20">
+        <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center">
+          <span className="px-4 py-1 rounded-full bg-purple-500/20 text-[#bc77ff] border border-purple-500/30 text-xs font-bold tracking-widest uppercase mb-6 inline-block">
             {project.category}
           </span>
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-4 bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
+          <h1 className="uppercase font-black italic tracking-tighter text-4xl md:text-6xl text-white drop-shadow-[0_0_25px_rgba(188,119,255,0.6)] mb-4 text-center">
             {project.title}
-          </h2>
-          <p className="text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+          </h1>
+          <p className="text-white/60 max-w-2xl mx-auto text-base md:text-lg leading-relaxed text-center">
             {project.description}
           </p>
         </div>
       </section>
 
       {/* Tweet Grid */}
-      <section className="px-6 md:px-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {project.tweets.map((tweet, i) => (
-              <TweetCard key={i} tweet={tweet} index={i + 1} projectId={project.id} />
-            ))}
-          </div>
+      <section className="px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4 mt-16 pb-24">
+          {project.tweets.map((tweet, i) => (
+            <TweetCard key={i} tweet={tweet} index={i + 1} projectId={project.id} />
+          ))}
         </div>
       </section>
     </motion.div>
@@ -93,10 +84,9 @@ const TweetCard = ({ tweet, index, projectId }: TweetCardProps) => {
       href={tweet.url} 
       target="_blank" 
       rel="noopener noreferrer"
-      whileHover={{ y: -5, scale: 1.01 }}
-      className="group relative rounded-3xl overflow-hidden glass border border-white/5 hover:border-neon-purple/40 transition-all duration-300 flex flex-col hover:shadow-[0_0_25px_-5px_rgba(176,38,255,0.25)] h-full"
+      className="bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-[#bc77ff]/50 transition-all duration-500 ease-out cursor-pointer group relative overflow-hidden h-full hover:-translate-y-2 hover:bg-white/[0.04] hover:shadow-[0_15px_40px_rgba(188,119,255,0.25)] flex flex-col"
     >
-      <div className="aspect-[16/10] relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent">
+      <div className="aspect-[16/10] relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent rounded-xl border border-white/5 mb-4">
         {!imageError ? (
           <img 
             src={tweet.screenshot} 
@@ -106,26 +96,26 @@ const TweetCard = ({ tweet, index, projectId }: TweetCardProps) => {
           />
         ) : (
           // Fallback UI: Structured glass box with Twitter icon
-          <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-white/3 backdrop-blur-sm border-b border-white/5 group-hover:bg-neon-purple/3 transition-colors duration-300">
-            <div className="w-12 h-12 rounded-full bg-neon-purple/10 flex items-center justify-center text-neon-purple shadow-lg shadow-neon-purple/10 border border-neon-purple/20 group-hover:scale-110 transition-transform">
+          <div className="w-full h-full flex flex-col items-center justify-center gap-3 bg-white/3 backdrop-blur-sm border-b border-white/5 group-hover:bg-[#bc77ff]/5 transition-colors duration-300">
+            <div className="w-12 h-12 rounded-full bg-[#bc77ff]/10 flex items-center justify-center text-[#bc77ff] shadow-lg shadow-[#bc77ff]/10 border border-[#bc77ff]/20 group-hover:scale-110 transition-transform">
               <Twitter size={20} />
             </div>
-            <div className="text-[11px] font-bold text-white/40 uppercase tracking-widest mt-2 group-hover:text-white/60 transition-colors">
+            <div className="text-[11px] font-bold text-white/60 uppercase tracking-widest mt-2 transition-colors duration-300 group-hover:text-[#bc77ff]">
               View Proof of Work on X
             </div>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#05000a] via-transparent to-transparent opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#05000a] via-transparent to-transparent opacity-30" />
       </div>
 
-      <div className="p-4 bg-white/3 mt-auto flex justify-between items-center group-hover:bg-neon-purple/5 transition-colors border-t border-white/5">
+      <div className="mt-auto pt-4 flex justify-between items-center border-t border-white/5 text-white/80">
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 rounded-full bg-neon-purple/10 flex items-center justify-center text-neon-purple">
-            <Twitter size={11} />
+          <div className="w-6 h-6 rounded-full bg-[#bc77ff]/10 flex items-center justify-center text-[#bc77ff] transition-all duration-300 group-hover:bg-[#bc77ff]/20">
+            <Twitter size={11} className="transition-colors duration-300 group-hover:text-[#bc77ff]" />
           </div>
-          <span className="text-[9px] font-bold text-white/50 uppercase tracking-widest">Verify Status</span>
+          <span className="text-[10px] font-bold text-white/80 uppercase tracking-widest transition-colors duration-300 group-hover:text-[#bc77ff]">Verify Status</span>
         </div>
-        <ExternalLink size={14} className="text-white/30 group-hover:text-neon-purple transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <ExternalLink size={14} className="text-white/40 transition-all duration-300 group-hover:text-[#bc77ff] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </div>
     </motion.a>
   );
