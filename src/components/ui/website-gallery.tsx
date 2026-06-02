@@ -158,12 +158,16 @@ const Gallery4 = ({
                         src={item.image}
                         alt={item.title}
                         className="w-full h-48 object-cover rounded-t-[2rem]"
+                        loading="lazy"
+                        decoding="async"
                       />
                     ) : (
                       <img
                         src={item.image}
                         alt={item.title}
                         className="absolute h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
                       />
                     )}
                     {/* Dark gradient overlay */}

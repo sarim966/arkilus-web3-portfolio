@@ -35,7 +35,7 @@ import {
 import { PROJECT_SAMPLES, WEBSITE_SHOWCASE, EXPERTISE, SKILLS, TIMELINE, TESTIMONIALS, SOCIAL_LINKS } from './constants';
 import { ProjectSample, WebsiteShowcase, ExpertiseItem, TimelineItem } from './types';
 import { Routes, Route, Link } from 'react-router-dom';
-import ProjectDetail from './pages/ProjectDetail';
+const ProjectDetail = React.lazy(() => import('./pages/ProjectDetail'));
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -285,6 +285,8 @@ const Projects = () => {
                     alt={sample.title}
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="text-[10px] font-bold bg-black text-white px-3 py-1.5 rounded-full uppercase tracking-widest shadow-lg">
@@ -336,6 +338,8 @@ const WebsiteCard = (props: any) => {
           src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800" 
           alt={site.title}
           className="w-full h-full object-cover absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700"
+          loading="lazy"
+          decoding="async"
         />
         
         {/* Overlay Video with smooth fade */}
@@ -629,7 +633,8 @@ export default function App() {
   return (
     <div className="min-h-screen relative bg-[#05000a] text-white selection:bg-white/20">
       <div className="relative z-10">
-        <Routes>
+        <React.Suspense fallback={<div className="bg-[#05000a] min-h-screen text-white flex items-center justify-center">LOADING...</div>}>
+          <Routes>
           <Route path="/" element={
             <>
               <Navbar />
@@ -648,7 +653,8 @@ export default function App() {
             </>
           } />
           <Route path="/project/:projectId" element={<ProjectDetail />} />
-        </Routes>
+          </Routes>
+        </React.Suspense>
       </div>
     </div>
   );

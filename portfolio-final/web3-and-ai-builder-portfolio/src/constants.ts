@@ -4,7 +4,7 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
   {
     id: 'seismic',
     title: 'Seismic',
-    description: 'Created granular liquidity guides and tokenomics breakdowns, scaling community engagement datasets for early node runners.',
+    description: "Delivered deep-dive technical research and comprehensive devnet integration guides, onboarding developers and empowering the ecosystem with step-by-step operational clarity.",
     category: 'Content',
     tweets: [
       { url: 'https://x.com/arkilus78/status/2016556027215565282', screenshot: '/assets/projects/seismic/tweet-0.jpg' },
@@ -20,7 +20,7 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
   {
     id: 'gensyn',
     title: 'Gensyn',
-    description: 'Built scalable toolchains and automated tooling maintaining safety constraints for autonomous workflows.',
+    description: "Authored deeply researched technical content and practical node deployment guides, streamlining execution barriers for decentralized infrastructure operators.",
     category: 'Dev',
     tweets: [
       { url: 'https://x.com/arkilus78/status/1989403466067054738', screenshot: '/assets/projects/gensyn/tweet-0.jpg' },
@@ -37,7 +37,7 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
   {
     id: 'alpha-sharing',
     title: 'Alpha Sharing',
-    description: 'Managed Discord scaling setups, formed safety protocols, and decentralized governance frameworks.',
+    description: "Distilling cutting-edge insights and high-value alpha leaks, establishing a premium hub for sharing asymmetric research before it hits the mainstream.",
     category: 'Community',
     tweets: [
       { url: 'https://x.com/arkilus78/status/2003874486810984713', screenshot: '/assets/projects/alpha-sharing/tweet-0.jpg' },
@@ -55,7 +55,7 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
   {
     id: 'opinionated',
     title: 'Opinionated',
-    description: 'Turning complex topics into viral compressible threads and layout guides directly connecting developers.',
+    description: "Unfiltered engineering perspectives and conviction-driven breakdowns, cutting through the noise with highly opinionated, high-signal market analysis.",
     category: 'Content',
     tweets: [
       { url: 'https://x.com/arkilus78/status/2015086716818985208', screenshot: '/assets/projects/opinionated/tweet-0.jpg' },
@@ -73,7 +73,7 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
   {
     id: 'sentient',
     title: 'Sentient',
-    description: 'Evaluating decentralized autonomous model weights and framework fallback guards with precise safety controls.',
+    description: "Crafted exhaustive, deeply researched analysis and data-driven content mapping out the frontiers of next-generation decentralized intelligence.",
     category: 'Dev',
     tweets: [
       { url: 'https://x.com/arkilus78/status/1971244140630249869', screenshot: '/assets/projects/sentient/tweet-0.jpg' },
@@ -88,7 +88,7 @@ export const PROJECT_SAMPLES: ProjectSample[] = [
   {
     id: 'prisma',
     title: 'Prisma',
-    description: 'Developed DeFi dashboard infrastructure and smart route integrations triggering automated liquidity pools.',
+    description: "Produced high-signal, deeply researched technical content unpacking complex mechanisms and architectural breakthroughs within the ecosystem.",
     category: 'Community',
     tweets: [
       { url: 'https://x.com/arkilus78/status/2003874486810984713', screenshot: '/assets/projects/prisma/tweet-0.jpg' },

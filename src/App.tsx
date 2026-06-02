@@ -33,7 +33,7 @@ import {
 import { PROJECT_SAMPLES, WEBSITE_SHOWCASE, SKILLS, TIMELINE, TESTIMONIALS, SOCIAL_LINKS } from './constants';
 import { ProjectSample, WebsiteShowcase, TimelineItem } from './types';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import ProjectDetail from './pages/ProjectDetail';
+const ProjectDetail = React.lazy(() => import('./pages/ProjectDetail'));
 import ProjectsPage, { mappedProjects } from './pages/ProjectsPage';
 import TeamShowcase from './components/ui/team-showcase';
 import { Gallery4 } from './components/ui/website-gallery';
@@ -291,6 +291,8 @@ const Projects = () => {
                     alt={sample.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-4 left-4">
                     <span 
@@ -345,6 +347,8 @@ const WebsiteCard = (props: any) => {
           src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800" 
           alt={site.title}
           className="w-full h-full object-cover absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700"
+          loading="lazy"
+          decoding="async"
         />
         
         {/* Overlay Video with smooth fade */}
@@ -657,7 +661,8 @@ export default function App() {
   return (
     <div className="min-h-screen relative bg-[#05000a] text-white selection:bg-white/20">
       <div className="relative z-10">
-        <Routes>
+        <React.Suspense fallback={<div className="bg-[#05000a] min-h-screen text-white flex items-center justify-center">LOADING...</div>}>
+          <Routes>
           <Route path="/" element={
             <>
               <Navbar />
@@ -720,7 +725,8 @@ export default function App() {
           } />
           <Route path="/project/:projectId" element={<ProjectDetail />} />
           <Route path="/projects" element={<ProjectsPage />} />
-        </Routes>
+          </Routes>
+        </React.Suspense>
       </div>
     </div>
   );

@@ -93,6 +93,8 @@ const TweetCard = ({ tweet, index, projectId }: TweetCardProps) => {
             alt={`Tweet ${index} for ${projectId}`}
             className="w-full h-full object-cover group-hover:opacity-90 transition-opacity duration-300"
             onError={() => setImageError(true)}
+            loading="lazy"
+            decoding="async"
           />
         ) : (
           // Fallback UI: Structured glass box with Twitter icon
