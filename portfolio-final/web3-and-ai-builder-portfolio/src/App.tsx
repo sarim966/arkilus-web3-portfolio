@@ -99,11 +99,12 @@ const Navbar = () => {
           ))}
         </div>
         
-        <div className="hidden md:block pr-1 relative z-10">
+        <div className="hidden md:block pr-1 relative z-10 cursor-pointer">
           <button 
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             onMouseEnter={() => setIsConnectOpen(true)}
             onMouseLeave={() => setIsConnectOpen(false)}
-            className="px-6 py-3 bg-[#2a2420] text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-[#3d342e] transition-colors flex items-center gap-2 relative z-10"
+            className="px-6 py-3 bg-[#2a2420] text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-full hover:bg-[#3d342e] transition-colors flex items-center gap-2 relative z-10 cursor-pointer"
           >
             Connect
           </button>
@@ -207,7 +208,10 @@ const Hero = () => {
 
           {/* New Pill Button Style */}
           <div className="flex mb-16">
-            <button className="bg-white text-black py-3 px-8 rounded-full font-bold flex items-center gap-4 hover:bg-white/90 transition-all shadow-xl group">
+            <button 
+              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-white text-black py-3 px-8 rounded-full font-bold flex items-center gap-4 hover:bg-white/90 transition-all shadow-xl group cursor-pointer"
+            >
               <span className="text-sm">Explore my works</span>
               <div className="w-8 h-8 rounded-full bg-neon-purple flex items-center justify-center text-white group-hover:scale-110 transition-transform">
                 <ArrowUpRight size={18} />
