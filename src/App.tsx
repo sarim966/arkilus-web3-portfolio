@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { Analytics } from '@vercel/analytics/react';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
@@ -732,6 +733,7 @@ export default function App() {
           </Routes>
         </React.Suspense>
       </div>
+      <Analytics />
     </div>
   );
 }
